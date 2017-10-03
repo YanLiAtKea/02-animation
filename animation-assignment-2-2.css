@@ -1,0 +1,122 @@
+.scene {
+    height: 60vh;
+    width: 90vw;
+    margin: 3em auto;
+    border: 2px solid black;
+}
+p {
+    margin-left: 2em;
+}
+img {
+    width: 49px;
+    height: 49px;
+    position: absolute;
+    margin-top: 37vh;
+    margin-left: -100px;
+}
+.move {
+    animation: move 4s infinite linear;
+}
+@keyframes move {
+    to {
+        transform: translate(120vw, 0) rotate(1800deg);
+    }
+}
+.moveTo30 {
+    animation: moveTo30 1.2s forwards linear;
+}
+@keyframes moveTo30 {
+    to {
+        transform: translateX(37vw) rotate(540deg);
+    }
+}
+.moveFrom30 {
+    animation: moveFrom30 2.8s forwards linear;
+}
+@keyframes moveFrom30 {
+    0% {
+        transform: translateX(37vw) rotate(0deg);
+    }
+    100% {
+        transform: translateX(120vw) rotate(1260deg);
+    }
+}
+.oneJump {
+    animation: oneJump 1s linear forwards;
+}
+@keyframes oneJump {
+    0% {
+        transform: translate(50vw, 0) rotate(0);
+    }
+    50% {
+        transform: translate(50vw, -30vh) rotate(180deg);
+    }
+    100% {
+        transform: translate(50vw, 0) rotate(360deg);
+    }
+}
+.shadow {
+    display: none;
+}
+/*
+.shadow {
+    display: inherit;
+    position: absolute;
+    top: 56vh;
+    left: 46vw;
+    width: 43px;
+    height: 17px;
+    background-color: #313131;
+    border-radius: 50%;
+    animation: shadow 1s linear infinite;
+}
+@keyframes shadow {
+    0% {
+        transform: scale(1);
+        opacity: .7;
+    }
+    50% {
+        transform: scale(.3);
+        opacity: .3;
+    }
+}
+*/
+.jump {
+    animation: jump 1s cubic-bezier(0.01, 0.55, 0.78, 1.1) infinite forwards;
+}
+@keyframes jump {
+    0% {
+        transform: translate(50vw, 0) scale(1);
+    }
+    45% {
+        transform: translate(50vw, -29vh) rotate(162deg) scale(.98);
+    }
+    50% {
+        transform: translate(50vw, -30vh) rotate(180deg) scale(.95);
+    }
+    55% {
+        transform: translate(50vw, -28vh) rotate(198deg) scale(.98);
+    }
+    90% {
+        transform: translate(50vw, 1vh) rotate(360deg);
+    }
+    95% {
+        transform: translate(50vw, 0vh) rotate(360deg) scale(1.2, .7);
+    }
+    100% {
+        transform: translate(50vw, -1vh) rotate(360deg) scale(1.4, .5);
+    }
+}
+.fade {
+    animation: fade 2s ease-out forwards;
+}
+@keyframes fade {
+    0% {
+        transform: translate(50vw, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(50vw, 0);
+        opacity: 0;
+    }
+}
