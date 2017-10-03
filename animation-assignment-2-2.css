@@ -3,6 +3,18 @@
     width: 90vw;
     margin: 3em auto;
     border: 2px solid black;
+    background: transparent;
+}
+div.bgfade {
+    animation: darkenBackground 1.5s forwards;
+}
+div.bgglow {
+    animation: darkenBackground 1s forwards;
+}
+@keyframes darkenBackground {
+    to {
+        background: black;
+    }
 }
 p {
     margin-left: 2em;
@@ -10,6 +22,7 @@ p {
 img {
     width: 49px;
     height: 49px;
+    border-radius: 50%;
     position: absolute;
     margin-top: 37vh;
     margin-left: -100px;
@@ -42,7 +55,7 @@ img {
     }
 }
 .oneJump {
-    animation: oneJump 1s linear forwards;
+    animation: oneJump 1s ease forwards;
 }
 @keyframes oneJump {
     0% {
@@ -118,5 +131,25 @@ img {
     100% {
         transform: translate(50vw, 0);
         opacity: 0;
+    }
+}
+.glow {
+    animation: glow 2s infinite linear;
+}
+@keyframes glow {
+    0% {
+        opacity: .7;
+        border: 13px solid gold;
+        transform: translate(50vw, 0);
+    }
+    50% {
+        opacity: .3;
+        border: 7px solid gold;
+        transform: translate(50vw, 0);
+    }
+    100% {
+        opacity: .7;
+        border: 13px solid gold;
+        transform: translate(50vw, 0);
     }
 }
