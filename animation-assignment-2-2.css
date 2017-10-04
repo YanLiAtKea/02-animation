@@ -1,75 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: #333;
+    position: relative;
+}
 .scene {
     height: 60vh;
-    width: 90vw;
-    margin: 1em auto;
-    border: 2px solid black;
-    background: transparent;
+    width: 86vw;
+    margin: 2em auto;
+    background: white;
+}
+#stop {
+    width: 11vw;
+    height: 11vw;
+    border-radius: 50%;
+    background-color: yellow;
+    text-align: center;
+    padding-top: 2vw;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 2.3vw;
+    line-height: 1em;
+    position: absolute;
+    right: 3vw;
+    top: 63vh;
+}
+.buttonArea {
+    width: 80vw;
+    margin-left: 6vw;
 }
 button {
-    width: 19vw;
+    width: 19%;
     padding: .5em;
     margin-bottom: .5em;
     border: 1px dotted black;
-    background: transparent;
+    background-color: lightgray;
+    border-radius: .5em;
 }
-div.bgfade {
-    animation: darkenBackground .1s forwards;
-}
-div.bgglow {
-    animation: darkenBackground 1s forwards;
-}
-@keyframes darkenBackground {
-    to {
-        background: #111;
-    }
-}
-p {
-    margin-left: 2em;
-}
-img {
-    width: 49px;
-    height: 49px;
+img, img.stop {
+    width: 7vw;
+    height: 7vw;
     border-radius: 50%;
     position: absolute;
     margin-top: 37vh;
-    margin-left: -100px;
+    margin-left: -7vw; /*out of scene, but visible on page*/
 }
+/* animations */
 .move {
-    animation: move 4s infinite linear;
+    animation: move 4s linear forwards;
 }
 @keyframes move {
     to {
-        transform: translate(120vw, 0) rotate(1800deg);
+        transform: translate(93vw, 0) rotate(1800deg);
     }
 }
 .moveTo30 {
-    animation: moveTo30 1.2s forwards linear;
+    animation: moveTo30 1.2s forwards cubic-bezier(0, 0, 0.4, 1.13);
 }
 @keyframes moveTo30 {
     to {
-        transform: translateX(37vw) rotate(540deg);
+        transform: translateX(30vw) rotate(540deg);
     }
 }
 .moveFrom30 {
-    animation: moveFrom30 2.8s forwards linear;
+    animation: moveFrom30 2.8s forwards cubic-bezier(0.65, 0, 0.87, 1.13);
 }
 @keyframes moveFrom30 {
     0% {
-        transform: translateX(37vw) rotate(0deg);
+        transform: translateX(30vw) rotate(540deg);
     }
     100% {
-        transform: translateX(120vw) rotate(1260deg);
+        transform: translateX(93vw) rotate(1260deg);  /*why not 100vw+7vw of ball width ?*/
     }
 }
 .oneJump {
-    animation: oneJump 1s ease forwards;
+    animation: oneJump .7s linear forwards;
 }
 @keyframes oneJump {
     0% {
         transform: translate(50vw, 0) rotate(0);
     }
     50% {
-        transform: translate(50vw, -30vh) rotate(180deg);
+        transform: translate(50vw, -37vh) rotate(180deg);
     }
     100% {
         transform: translate(50vw, 0) rotate(360deg);
@@ -109,19 +124,19 @@ img {
         transform: translate(50vw, 0) scale(1);
     }
     50% {
-        transform: translate(50vw, -30vh) rotate(180deg) scale(.95);
+        transform: translate(50vw, -33vh) rotate(180deg) scale(.95);
     }
     55% {
-        transform: translate(50vw, -28vh) rotate(198deg) scale(.98);
+        transform: translate(50vw, -30vh) rotate(198deg) scale(.98);
     }
     90% {
-        transform: translate(50vw, 0vh) rotate(360deg) scale(1);
+        transform: translate(50vw, 0vh) rotate(324deg) scale(1);
     }
     95% {
         transform: translate(50vw, -.5vh) rotate(360deg) scale(1.2, .7);
     }
     100% {
-        transform: translate(50vw, -1vh) rotate(360deg) scale(1.4, .5);
+        transform: translate(50vw, -1vh) rotate(360deg) scale(1.5, .5);
     }
 }
 .fade {
@@ -135,6 +150,14 @@ img {
     100% {
         transform: translate(50vw) scale(.5);
         opacity: 0;
+    }
+}
+div.bgfade {
+    animation: darkenBackground .1s forwards;
+}
+@keyframes darkenBackground {
+    to {
+        background: #111;
     }
 }
 .glow {
@@ -166,4 +189,7 @@ img {
         border: 1px dashed gold;
         transform: translate(50vw, 0);
     }
+}
+div.bgglow {
+    animation: darkenBackground 1s forwards;
 }
