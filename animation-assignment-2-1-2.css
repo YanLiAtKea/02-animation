@@ -93,7 +93,7 @@ button {
     color: #bbb;
 }
 h2 {
-    margin-bottom: 2em;
+    margin-bottom: 3em;
 }
 .js {
     height: 19em;
@@ -113,7 +113,7 @@ h2 {
 .unfinished > ul {
     position: absolute;
     left: 10vw;
-    height: 5em;
+    height: 6em;
     overflow: scroll;
 }
 /* animations */
@@ -192,22 +192,22 @@ h2 {
 }
 @keyframes jump {
     0% {
-        transform: translate(30vw, .5vh) scale(1);
+        transform: translate(30vw, 1.5vh) rotate(0);
     }
     50% {
-        transform: translate(30vw, -33vh) rotate(180deg) scale(.95);
+        transform: translate(30vw, -37vh) rotate(180deg) scale(.95);
     }
     55% {
-        transform: translate(30vw, -30vh) rotate(198deg) scale(.98);
+        transform: translate(30vw, -35vh) rotate(198deg) scale(.98);
     }
     90% {
         transform: translate(30vw, 0vh) rotate(324deg) scale(1);
     }
     95% {
-        transform: translate(30vw, .5vh) rotate(360deg) scale(1.2, .8);
+        transform: translate(30vw, 1.5vh) rotate(342deg) scale(1.2, .8);
     }
     100% {
-        transform: translate(30vw, 1vh) rotate(360deg) scale(1.5, .6);
+        transform: translate(30vw, 2vh) rotate(360deg) scale(1.5, .6);
     }
 }
 .shadowjump {
@@ -345,7 +345,7 @@ div.bgglow {
     }
 }
 .sneak {
-    animation: sneak 8s forwards;
+    animation: sneak 10s forwards;
 }
 @keyframes sneak {
     0% {
@@ -383,27 +383,27 @@ div.bgglow {
         border: none;
     }
     27% {
-        transform: translate(26vw, -1vh) scale(1.4) rotate(60deg);
+        transform: translate(26vw, -1vh) scale(1.2) rotate(60deg);
         animation-timing-function: ease-in;
         border: none;
     }
-    29% {
+    28% {
         transform: translate(29vw, 9vh) scale(1.5) rotate(60deg);
         animation-timing-function: ease-in;
         border: none;
     }
-    43% {
-        transform: translate(33vw, 7vh) scale(1.4) rotate(90deg);
+    45% {
+        transform: translate(33vw, 9vh) scale(1.5) rotate(90deg);
         animation-timing-function: ease-out;
         border: none;
     }
     51% {
-        transform: translate(45vw, 8vh) scale(2.4, .5) rotate(90deg);
+        transform: translate(45vw, 10vh) scale(2.4, .5) rotate(90deg);
         animation-timing-function: ease-out;
         border: none;
     }
     52% {
-        transform: translate(50vw, 7vh) scale(1.4) rotate(90deg);
+        transform: translate(50vw, 9vh) scale(1.5) rotate(90deg);
         animation-timing-function: ease-in;
         border: none;
     }
@@ -416,43 +416,42 @@ div.bgglow {
         transform: translate(120vw, -10vh) scale(.9) rotate(1800deg);
         animation-timing-function: ease-in;
     }
-    70% {
+    77% {
         transform: translate(70vw, -15vh) scale(.5) rotate(-240deg);
-        border: 2px solid gold;
         animation-timing-function: ease-in;
-        border: 2px solid gold;
+        border: 3px solid gold;
     }
-    72% {
+    80% {
         transform: translate(68vw, -18vh) scale(.5) rotate(-480deg);
         animation-timing-function: ease-in;
-        border: 2px solid gold;
+        border: 3px solid gold;
     }
-    74% {
+    83% {
         transform: translate(66vw, -15vh) scale(.5) rotate(-720deg);
         animation-timing-function: ease-in;
-        border: 2px solid gold;
+        border: 3px solid gold;
     }
-    76% {
+    86% {
         transform: translate(64vw, -18vh) scale(.5) rotate(-960deg);
         animation-timing-function: ease-in;
-        border: 2px solid gold;
+        border: 3px solid gold;
     }
-    78% {
+    89% {
         transform: translate(62vw, -15vh) scale(.5) rotate(-1200deg);
         animation-timing-function: ease-in;
-        border: 2px solid gold;
+        border: 3px solid gold;
     }
     93% {
         transform: translate(36vw, -25vh) scale(.3) rotate(-2400deg);
         animation-timing-function: ease-in;
-        border: 3px solid gold;
+        border: 7px solid gold;
     }
     100% {
         transform: translate(0, -30vh) scale(0) rotate(-4800deg);
         animation-timing-function: ease-in;
-        border: 3px solid gold;
+        border: 11px solid gold;
     }
 }
 div.bgsneak {
-    animation: darkenBackground .5s 4.7s forwards;
+    animation: darkenBackground .5s 6s forwards;
 }
