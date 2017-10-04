@@ -28,7 +28,7 @@ body {
     height: 1px;
     border-top: 1px solid #222;
     position: absolute;
-    bottom: 17vh;
+    bottom: 17.5vh;
 }
 #stop {
     width: 11vw;
@@ -94,37 +94,43 @@ img, img.stop {
         transform: translateX(30vw) rotate(540deg);
     }
     100% {
-        transform: translateX(100vw) rotate(1260deg);
+        transform: translateX(93vw) rotate(1260deg);
     }
 }
 .oneJump {
-    animation: oneJump .7s linear forwards;
+    animation: oneJump .7s cubic-bezier(0,-0.01, 0.07, 1) forwards;
 }
 @keyframes oneJump {
     0% {
-        transform: translate(50vw, 0) rotate(0);
+        transform: translate(30vw, 0) rotate(0);
     }
     50% {
-        transform: translate(50vw, -37vh) rotate(180deg);
+        transform: translate(30vw, -37vh) rotate(180deg);
+    }
+    98% {
+        transform: translate(30vw, 0) rotate(360deg);
+    }
+    99% {
+        transform: translate(30vw, .5vh) rotate(360deg) scale(1.2, .8);
     }
     100% {
-        transform: translate(50vw, 0) rotate(360deg);
+        transform: translate(30vw, 0) rotate(360deg) scale(1);
     }
 }
 .shadow {
     display: none;
 }
-/*
-.shadow {
+
+.shadowjump {
     display: inherit;
     position: absolute;
-    top: 56vh;
-    left: 46vw;
-    width: 43px;
-    height: 17px;
+    top: 43vh;
+    left: 23vw;
+    width: 7vw;
+    height: 13px;
     background-color: #313131;
     border-radius: 50%;
-    animation: shadow 1s linear infinite;
+    animation: shadow 1s cubic-bezier(0.11, 0.9, 0.83, 1.04) infinite;
 }
 @keyframes shadow {
     0% {
@@ -136,28 +142,28 @@ img, img.stop {
         opacity: .3;
     }
 }
-*/
+
 .jump {
     animation: jump 1s cubic-bezier(0.11, 0.9, 0.83, 1.04) infinite forwards;
 }
 @keyframes jump {
     0% {
-        transform: translate(50vw, 0) scale(1);
+        transform: translate(30vw, 0) scale(1);
     }
     50% {
-        transform: translate(50vw, -33vh) rotate(180deg) scale(.95);
+        transform: translate(30vw, -33vh) rotate(180deg) scale(.95);
     }
     55% {
-        transform: translate(50vw, -30vh) rotate(198deg) scale(.98);
+        transform: translate(30vw, -30vh) rotate(198deg) scale(.98);
     }
     90% {
-        transform: translate(50vw, 0vh) rotate(324deg) scale(1);
+        transform: translate(30vw, 0vh) rotate(324deg) scale(1);
     }
     95% {
-        transform: translate(50vw, -.5vh) rotate(360deg) scale(1.2, .7);
+        transform: translate(30vw, -.5vh) rotate(360deg) scale(1.2, .7);
     }
     100% {
-        transform: translate(50vw, -1vh) rotate(360deg) scale(1.5, .5);
+        transform: translate(30vw, -1vh) rotate(360deg) scale(1.5, .5);
     }
 }
 .fade {
