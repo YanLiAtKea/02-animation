@@ -90,9 +90,9 @@ button {
     padding: 2em;
     height: auto;
     position: relative;
-    color: #eee;
+    color: #bbb;
 }
-h3 {
+h2 {
     margin-bottom: 2em;
 }
 .js {
@@ -112,7 +112,9 @@ h3 {
 }
 ul {
     position: absolute;
-    left: 5vw;
+    left: 10vw;
+    height: 5em;
+    overflow: scroll;
 }
 /* animations */
 .move {
