@@ -32,9 +32,7 @@ body {
 }
 #stop {
     width: 11vw;
-    min-width: 100px;
     height: 11vw;
-    min-height: 100px;
     border-radius: 50%;
     background-color: yellow;
     text-align: center;
@@ -96,7 +94,7 @@ img, img.stop {
         transform: translateX(30vw) rotate(540deg);
     }
     100% {
-        transform: translateX(93vw) rotate(1260deg);  /*why not 100vw+7vw of ball width ?*/
+        transform: translateX(100vw) rotate(1260deg);
     }
 }
 .oneJump {
