@@ -11,41 +11,54 @@ body {
     position: relative;
     height: 60vh;
     width: 86vw;
-    margin: 2em auto;
+    margin: 2em auto 1em 9vw;
     background: white;
 }
+.start {
+    color: white;
+    font-family: monospace;
+    font-size: 1.7em;
+    position: absolute;
+    left: -3em;
+    bottom: 1em;
+    transform: rotate(270deg);
+}
 .horizon {
-    height: 3px;
     width: 99%;
+    height: 1px;
     border-top: 1px solid #222;
     position: absolute;
-    top: 44vh;
+    bottom: 17vh;
 }
 #stop {
     width: 11vw;
+    min-width: 100px;
     height: 11vw;
+    min-height: 100px;
     border-radius: 50%;
     background-color: yellow;
     text-align: center;
+    padding: 1em;
     padding-top: 2vw;
     font-family: monospace;
     font-weight: bold;
-    font-size: 2.3vw;
-    line-height: 1em;
+    font-size: 2.2vw;
+    line-height: .8em;
     position: absolute;
     right: 3vw;
     top: 63vh;
 }
 .buttonArea {
-    width: 80vw;
-    margin-left: 6vw;
+    width: 75vw;
+    margin-left: 9vw;
 }
 button {
     width: 19%;
-    padding: .5em;
-    margin-bottom: .5em;
+    min-width: 100px;
+    height: 3em;
+    margin-top: .5em;
     border: 1px dotted black;
-    background-color: lightgray;
+    background-color: #ccc;
     border-radius: .5em;
 }
 img, img.stop {
@@ -54,7 +67,7 @@ img, img.stop {
     height: 7vw;
     border-radius: 50%;
     position: absolute;
-    margin-top: 37vh;
+    bottom: 17vh;
     margin-left: -7vw; /*out of scene, but visible on page*/
     box-sizing: content-box; /* so when glow, ball doesn't change size, glowing border will be added to the outside*/
 }
@@ -76,7 +89,7 @@ img, img.stop {
     }
 }
 .moveFrom30 {
-    animation: moveFrom30 2.8s forwards cubic-bezier(0.65, 0, 0.87, 1.13);
+    animation: moveFrom30 2.8s forwards cubic-bezier(0.65, 0, 0.87, 1.07);
 }
 @keyframes moveFrom30 {
     0% {
@@ -176,27 +189,27 @@ div.bgfade {
 @keyframes glow {
     0% {
         opacity: .5;
-        border: 1px dashed rgba(255,255,0, .3);
+        border: 1px dashed rgba(255,255,0, .2);
         transform: translate(30vw, 0);
     }
     25% {
         opacity: 1;
-        border: 1vw solid rgba(255,255,0, .7);
-        transform: translate(29vw, -1vw); /* adjust position according to border width so ball doesn't move, content-box sizing  */
+        border: 1vw solid rgba(255,255,0, .5);
+        transform: translate(29vw, 1vw); /* adjust position according to border width so ball doesn't move, content-box sizing  */
     }
     50% {
         opacity: .2;
-        border: 1px dashed rgba(255,255,0, .3);
+        border: 1px dashed rgba(255,255,0, .2);
         transform: translate(30vw, 0);
     }
     75% {
         opacity: 1;
-        border: 1vw solid rgba(255,255,0, .7);
-        transform: translate(29vw, -1vw);
+        border: 1vw solid rgba(255,255,0, .5);
+        transform: translate(29vw, 1vw);
     }
     100% {
         opacity: .5;
-        border: 1px dashed rgba(255,255,0, .3);
+        border: 1px dashed rgba(255,255,0, .2);
         transform: translate(30vw, 0);
     }
 }
