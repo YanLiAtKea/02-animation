@@ -14,6 +14,9 @@ body {
     margin: 2em auto 1em 9vw;
     background: white;
 }
+.shadow {
+    display: none; /* not all animation has shadow*/
+}
 .horizon {
     width: 99%;
     height: 1px;
@@ -30,20 +33,6 @@ img, img.stop {
     bottom: 17vh;
     margin-left: -7vw; /*out of scene, but visible on page*/
     box-sizing: content-box; /* so when glow, ball doesn't change size, glowing border will be added to the outside*/
-}
-.shadow {
-    display: none; /* not all animation has shadow */
-}
-.shadowjump {
-    display: inherit;
-    position: absolute;
-    top: 42.5vh;
-    left: 23.5vw;
-    width: 6vw;
-    height: 1vh;
-    background-color: #313131;
-    border-radius: 50%;
-    animation: shadow 1s cubic-bezier(0.11, 0.9, 0.83, 1.04) infinite;
 }
 .start {
     color: white;
@@ -131,8 +120,20 @@ button {
         transform: translate(30vw, 0) rotate(360deg) scale(1);
     }
 }
-
-@keyframes shadow {
+.shadowoneJump, .shadowjump {
+    display: inherit;
+    position: absolute;
+    top: 42.3vh;
+    left: 24.5vw;
+    width: 4vw;
+    height: 11px;
+    background-color: #222;
+    border-radius: 50%;
+}
+.shadowoneJump {
+    animation: shadowoneJump .7s cubic-bezier(0,-0.01, 0.07, 1) forwards;
+}
+@keyframes shadowoneJump {
     0% {
         transform: scale(1);
         opacity: .7;
@@ -140,9 +141,7 @@ button {
     50% {
         transform: scale(.3);
         opacity: .3;
-    }
 }
-
 .jump {
     animation: jump 1s cubic-bezier(0.11, 0.9, 0.83, 1.04) infinite forwards;
 }
@@ -164,6 +163,19 @@ button {
     }
     100% {
         transform: translate(30vw, -1vh) rotate(360deg) scale(1.5, .5);
+    }
+}
+.shadowjump {
+    animation: shadowjump 1s cubic-bezier(0.11, 0.9, 0.83, 1.04) infinite;
+}
+@keyframes shadowjump {
+    0% {
+        transform: scale(1);
+        opacity: .7;
+    }
+    50% {
+        transform: scale(.3);
+        opacity: .3;
     }
 }
 .fade {
