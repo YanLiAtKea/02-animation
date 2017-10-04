@@ -11,7 +11,7 @@ body {
     position: relative;
     height: 60vh;
     width: 86vw;
-    margin: 2em auto 1em 9vw;
+    margin: 3em auto 1em 8vw;
     background: white;
 }
 .horizon {
@@ -43,6 +43,7 @@ img, img.stop {
     height: 1vh;
     background-color: #313131;
     border-radius: 50%;
+    opacity: .5;
 }
 .start {
     color: white;
@@ -54,13 +55,13 @@ img, img.stop {
     transform: rotate(270deg);
 }
 #stop {
-    width: 11vw;
-    height: 11vw;
+    width: 13vw;
+    height: 13vw;
     border-radius: 50%;
     background-color: yellow;
     text-align: center;
     padding: 1em;
-    padding-top: 2vw;
+    padding-top: 3vw;
     font-family: monospace;
     font-weight: bold;
     font-size: 2.2vw;
@@ -71,7 +72,7 @@ img, img.stop {
 }
 .buttonArea {
     width: 75vw;
-    margin-left: 9vw;
+    margin-left: 8vw;
 }
 button {
     width: 19%;
@@ -100,7 +101,7 @@ button {
     }
 }
 .moveFrom30 {
-    animation: moveFrom30 2.8s forwards cubic-bezier(0.65, 0, 0.87, 1.07);
+    animation: moveFrom30 2.8s forwards cubic-bezier(0.65, 0, 0.56, 1.18);
 }
 @keyframes moveFrom30 {
     0% {
@@ -136,11 +137,15 @@ button {
 @keyframes shadowOne {
     0% {
         transform: scale(1);
-        opacity: .7;
+        opacity: .5;
     }
     50% {
         transform: scale(.3);
-        opacity: .3;
+        opacity: .2;
+    }
+    99% {
+        transform: scale(1.1, .8);
+        opacity: .5;
     }
 }
 .jump {
@@ -172,11 +177,15 @@ button {
 @keyframes shadow {
     0% {
         transform: scale(1);
-        opacity: .7;
+        opacity: .5;
     }
     50% {
         transform: scale(.3);
-        opacity: .3;
+        opacity: .2;
+    }
+    95% {
+        transform: scale(1.2, .7);
+        opacity: .5;
     }
 }
 .fade {
@@ -188,7 +197,7 @@ button {
         opacity: 1;
     }
     100% {
-        transform: translate(30vw);
+        transform: translate(30vw, 0);
         opacity: 0;
     }
 }
@@ -212,7 +221,8 @@ div.bgfade {
     25% {
         opacity: 1;
         border: 1vw solid rgba(255,255,0, .5);
-        transform: translate(29vw, 1vw); /* adjust position according to border width so ball doesn't move, content-box sizing  */
+        transform: translate(29vw, 1vw); /* adjust position according to border width so ball doesn't move, content-box sizing
+        BUT glow shouldn't look like this, should reflect on ground*/
     }
     50% {
         opacity: .2;
@@ -232,4 +242,66 @@ div.bgfade {
 }
 div.bgglow {
     animation: darkenBackground 1s forwards;
+}
+.fallDown {
+    animation: fallDawn 1s cubic-bezier(1, 0, 1, 1) forwards;
+}
+@keyframes fallDawn {
+    0% {
+        transform: translate(30vw, 0) rotateY(0);
+    }
+    10% {
+        transform: translate(30vw, 0) rotateY(30deg);
+    }
+    20% {
+        transform: translate(30vw, 0) rotateY(0);
+    }
+    30% {
+        transform: translate(30vw, 0) rotateY(-30deg);
+    }
+    40% {
+        transform: translate(30vw, 0) rotateY(0);
+    }
+    50% {
+        transform: translate(30vw, 0) rotateY(-30deg);
+    }
+    100% {
+        transform: translate(30vw, 0) rotateY(-30deg) rotateX(90deg);
+        transform-origin: bottom;
+    }
+}
+.shake {
+    animation: shake .1s linear 4 forwards;
+}
+@keyframes shake {
+    from {
+        transform: translate(30vw, 0);
+    }
+    to {
+        transform: translate(30.2vw, .2vw);
+    }
+}
+.mirror {
+    animation: mirror .15s ease-in forwards;
+}
+@keyframes mirror {
+    0% {
+        transform: translate(30vw, 0) scale(1, 1);
+    }
+    70% {
+        transform: translate(55vw, 0) scale(.5, 1);
+        opacity: .5;
+    }
+    80% {
+        transform: translate(60vw, 0) scale(0, 1);
+        opacity: 0;
+    }
+    90% {
+        transform: translate(65vw, 0) scale(-.5, 1);
+        opacity: .5;
+    }
+    100% {
+        transform: translate(70vw, 0) scale(-1, 1);
+        opacity: 1;
+    }
 }
