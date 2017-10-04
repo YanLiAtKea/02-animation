@@ -1,19 +1,26 @@
 .scene {
     height: 60vh;
     width: 90vw;
-    margin: 3em auto;
+    margin: 1em auto;
     border: 2px solid black;
     background: transparent;
 }
+button {
+    width: 19vw;
+    padding: .5em;
+    margin-bottom: .5em;
+    border: 1px dotted black;
+    background: transparent;
+}
 div.bgfade {
-    animation: darkenBackground 1.5s forwards;
+    animation: darkenBackground .1s forwards;
 }
 div.bgglow {
     animation: darkenBackground 1s forwards;
 }
 @keyframes darkenBackground {
     to {
-        background: black;
+        background: #111;
     }
 }
 p {
@@ -95,14 +102,11 @@ img {
 }
 */
 .jump {
-    animation: jump 1s cubic-bezier(0.01, 0.55, 0.78, 1.1) infinite forwards;
+    animation: jump 1s cubic-bezier(0.11, 0.9, 0.83, 1.04) infinite forwards;
 }
 @keyframes jump {
     0% {
         transform: translate(50vw, 0) scale(1);
-    }
-    45% {
-        transform: translate(50vw, -29vh) rotate(162deg) scale(.98);
     }
     50% {
         transform: translate(50vw, -30vh) rotate(180deg) scale(.95);
@@ -111,45 +115,55 @@ img {
         transform: translate(50vw, -28vh) rotate(198deg) scale(.98);
     }
     90% {
-        transform: translate(50vw, 1vh) rotate(360deg);
+        transform: translate(50vw, 0vh) rotate(360deg) scale(1);
     }
     95% {
-        transform: translate(50vw, 0vh) rotate(360deg) scale(1.2, .7);
+        transform: translate(50vw, -.5vh) rotate(360deg) scale(1.2, .7);
     }
     100% {
         transform: translate(50vw, -1vh) rotate(360deg) scale(1.4, .5);
     }
 }
 .fade {
-    animation: fade 2s ease-out forwards;
+    animation: fade 3.7s ease-out forwards;
 }
 @keyframes fade {
     0% {
-        transform: translate(50vw, 0);
+        transform: translate(50vw, 0) scale(1);
         opacity: 1;
     }
     100% {
-        transform: translate(50vw, 0);
+        transform: translate(50vw) scale(.5);
         opacity: 0;
     }
 }
 .glow {
-    animation: glow 2s infinite linear;
+    animation: glow 2.4s infinite ease-out;
 }
 @keyframes glow {
     0% {
-        opacity: .7;
-        border: 13px solid gold;
+        opacity: .5;
+        border: 1px dashed gold;
+        transform: translate(50vw, 0);
+    }
+    25% {
+        opacity: 1;
+        border: 11px solid gold;
         transform: translate(50vw, 0);
     }
     50% {
-        opacity: .3;
-        border: 7px solid gold;
+        opacity: .2;
+        border: 1px dashed gold;
+        transform: translate(50vw, 0);
+    }
+    75% {
+        opacity: 1;
+        border: 11px solid gold;
         transform: translate(50vw, 0);
     }
     100% {
-        opacity: .7;
-        border: 13px solid gold;
+        opacity: .5;
+        border: 1px dashed gold;
         transform: translate(50vw, 0);
     }
 }
