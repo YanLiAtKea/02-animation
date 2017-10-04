@@ -21,7 +21,7 @@ body {
     position: absolute;
     bottom: 17.5vh;
 }
-img, img.stop {
+.scene img, img.stop {
     z-index: 1;
     width: 7vw;
     height: 7vw;
@@ -55,6 +55,7 @@ img, img.stop {
     transform: rotate(270deg);
 }
 #stop {
+    z-index: 1;
     width: 13vw;
     height: 13vw;
     border-radius: 50%;
@@ -82,6 +83,36 @@ button {
     border: 1px dotted black;
     background-color: #ccc;
     border-radius: .5em;
+}
+.codeAndUnfinished {
+    background: black;
+    margin-top: 1em;
+    padding: 2em;
+    height: auto;
+    position: relative;
+    color: #eee;
+}
+h3 {
+    margin-bottom: 2em;
+}
+.js {
+    height: 19em;
+    overflow: scroll;
+    width: 50vw;
+    display: inline;
+}
+.js img {
+    width: 643px;
+}
+.unfinished {
+    width: 50vw;
+    position: absolute;
+    right: 0;
+    top: 2em;
+}
+ul {
+    position: absolute;
+    left: 5vw;
 }
 /* animations */
 .move {
@@ -149,7 +180,7 @@ button {
     }
 }
 .jump {
-    animation: jump 1s cubic-bezier(0.11, 0.9, 0.83, 1.04) infinite forwards;
+    animation: jump 1s cubic-bezier(0, 0, 0, 1) infinite forwards;
 }
 @keyframes jump {
     0% {
@@ -165,14 +196,14 @@ button {
         transform: translate(30vw, 0vh) rotate(324deg) scale(1);
     }
     95% {
-        transform: translate(30vw, -.5vh) rotate(360deg) scale(1.2, .7);
+        transform: translate(30vw, -.5vh) rotate(360deg) scale(1.2, .8);
     }
     100% {
-        transform: translate(30vw, -1vh) rotate(360deg) scale(1.5, .5);
+        transform: translate(30vw, -1vh) rotate(360deg) scale(1.5, .6);
     }
 }
 .shadowjump {
-    animation: shadow 1s cubic-bezier(0.11, 0.9, 0.83, 1.04) infinite;
+    animation: shadow 1s cubic-bezier(0, 0, 0, 1) infinite;
 }
 @keyframes shadow {
     0% {
