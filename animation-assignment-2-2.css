@@ -4,14 +4,22 @@
     box-sizing: border-box;
 }
 body {
-    background: #333;
+    background: #222;
     position: relative;
 }
 .scene {
+    position: relative;
     height: 60vh;
     width: 86vw;
     margin: 2em auto;
     background: white;
+}
+.horizon {
+    height: 3px;
+    width: 99%;
+    border-top: 1px solid #222;
+    position: absolute;
+    top: 44vh;
 }
 #stop {
     width: 11vw;
@@ -41,12 +49,14 @@ button {
     border-radius: .5em;
 }
 img, img.stop {
+    z-index: 1;
     width: 7vw;
     height: 7vw;
     border-radius: 50%;
     position: absolute;
     margin-top: 37vh;
     margin-left: -7vw; /*out of scene, but visible on page*/
+    box-sizing: content-box; /* so when glow, ball doesn't change size, glowing border will be added to the outside*/
 }
 /* animations */
 .move {
@@ -144,11 +154,11 @@ img, img.stop {
 }
 @keyframes fade {
     0% {
-        transform: translate(50vw, 0) scale(1);
+        transform: translate(30vw, 0);
         opacity: 1;
     }
     100% {
-        transform: translate(50vw) scale(.5);
+        transform: translate(30vw);
         opacity: 0;
     }
 }
@@ -166,28 +176,28 @@ div.bgfade {
 @keyframes glow {
     0% {
         opacity: .5;
-        border: 1px dashed gold;
-        transform: translate(50vw, 0);
+        border: 1px dashed rgba(255,255,0, .3);
+        transform: translate(30vw, 0);
     }
     25% {
         opacity: 1;
-        border: 11px solid gold;
-        transform: translate(50vw, 0);
+        border: 1vw solid rgba(255,255,0, .7);
+        transform: translate(29vw, -1vw); /* adjust position according to border width so ball doesn't move, content-box sizing  */
     }
     50% {
         opacity: .2;
-        border: 1px dashed gold;
-        transform: translate(50vw, 0);
+        border: 1px dashed rgba(255,255,0, .3);
+        transform: translate(30vw, 0);
     }
     75% {
         opacity: 1;
-        border: 11px solid gold;
-        transform: translate(50vw, 0);
+        border: 1vw solid rgba(255,255,0, .7);
+        transform: translate(29vw, -1vw);
     }
     100% {
         opacity: .5;
-        border: 1px dashed gold;
-        transform: translate(50vw, 0);
+        border: 1px dashed rgba(255,255,0, .3);
+        transform: translate(30vw, 0);
     }
 }
 div.bgglow {
