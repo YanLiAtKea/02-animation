@@ -34,7 +34,7 @@ img, img.stop {
 .shadow {
     display: none; /* not all animation has shadow */
 }
-.shadowjump {
+.shadowjump, .shadowoneJump {
     display: inherit;
     position: absolute;
     top: 42.5vh;
@@ -43,7 +43,6 @@ img, img.stop {
     height: 1vh;
     background-color: #313131;
     border-radius: 50%;
-    animation: shadow 1s cubic-bezier(0.11, 0.9, 0.83, 1.04) infinite;
 }
 .start {
     color: white;
@@ -131,8 +130,10 @@ button {
         transform: translate(30vw, 0) rotate(360deg) scale(1);
     }
 }
-
-@keyframes shadow {
+.shadowoneJump {
+    animation: shadowOne .7s cubic-bezier(0,-0.01, 0.07, 1);
+}
+@keyframes shadowOne {
     0% {
         transform: scale(1);
         opacity: .7;
@@ -142,7 +143,6 @@ button {
         opacity: .3;
     }
 }
-
 .jump {
     animation: jump 1s cubic-bezier(0.11, 0.9, 0.83, 1.04) infinite forwards;
 }
@@ -164,6 +164,19 @@ button {
     }
     100% {
         transform: translate(30vw, -1vh) rotate(360deg) scale(1.5, .5);
+    }
+}
+.shadowjump {
+    animation: shadow 1s cubic-bezier(0.11, 0.9, 0.83, 1.04) infinite;
+}
+@keyframes shadow {
+    0% {
+        transform: scale(1);
+        opacity: .7;
+    }
+    50% {
+        transform: scale(.3);
+        opacity: .3;
     }
 }
 .fade {
