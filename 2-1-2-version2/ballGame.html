@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ballGame.css">
+    <title>theBallGame</title>
+</head>
+
+<body>
+    <div class="scene">
+        <div class="ballHorizontal"><div class="ballVertical"><img class="ball" src="ball.png" alt="a ball"></div></div>
+        <div class="ball2Horizontal"><div class="ball2Vertical"><img class="ball2" src="ball2.png" alt="another ball"></div></div>
+        <div class="ball3Horizontal"><div class="ball3Vertical"><img class="ball3" src="ball3.png" alt="third ball"></div></div>
+        <div class="horizon"></div>
+        <div class="shadow"></div>
+        <div class="blood"></div>
+        <div class="wind"></div>
+        <div class="control volumeControl">volumeControl</div>
+        <div class="control directionControl">
+            <div id="left">left</div>
+            <div id="right">left</div>
+            <div id="up">up</div>
+            <div id="down">down</div>
+        </div>
+    </div>
+    <div id="stop">STOP<br>&amp;<br>RESTART</div>
+    <div class="buttonArea buttonAreaSimple">
+        <button id="move" class="button">cross screen</button>
+        <button id="moveTo30" class="button">roll in to 1/3</button>
+        <button id="moveFrom30" class="button">away from 1/3</button>
+        <button id="oneJump" class="button">one jump</button>
+        <button id="jump" class="button">bouncing</button>
+        <button id="fade" class="button">fade</button>
+        <button id="glow" class="button">glow</button>
+        <button id="fallDown" class="button">got hit and fall</button>
+        <button id="shake" class="button">shake</button>
+        <button id="mirror" class="button">mirror</button>
+    </div>
+    <div class="buttonArea buttonAreaMore">
+        <button id="bounceWithForce">bounce with force</button>
+        <button id="bounceNatural">natural bounce</button>
+        <button id="sneak" class="button">sneaking around</button>
+        <button id="userControl">USER CONTROL</button>
+    </div>
+    <div class="buttonArea moreBalls">
+        <button id="moreCome">Here comes another one~</button>
+        <button id="compete">who is the boss?</button>
+        <button id="dead">Oh, i'm so dead..</button>
+    </div>
+    <div class="codeAndUnfinished">
+        <h2>Code &amp; Issues ..</h2>
+        <div class="note js">
+            <h3>JS</h3>
+            <img src="js.png" alt="JS snippet">
+        </div>
+        <div class="note css">
+            <h3>CSS</h3>
+        </div>
+        <div class="note unfinished">
+            <h3>Issues</h3>
+            <ul>
+                <li>? bouncing speed strange</li>
+                <li>* relate shadow width to bounce</li>
+                <li>! glow works in Chrome/Opera/Brave.</li>
+                <li>?? define horizontal and vertical motions seperately</li>
+            </ul>
+        </div>
+    </div>
+    <script src="ballGame.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,434 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: #222;
+    position: relative;
+}
+.scene {
+    position: relative;
+    height: 60vh;
+    width: 86vw;
+    margin: 2em auto 1em 7vw;
+    background: white;
+    overflow: hidden;
+}
+.horizon {
+    width: 99%;
+    height: 1px;
+    border-top: 1px solid #222;
+    position: absolute;
+    bottom: 17.5vh;
+}
+.scene img, img.stop {
+    z-index: 1;
+    width: 7vw;
+    height: 7vw;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 17vh;
+    margin-left: -7vw; /*out of scene, but visible on page*/
+    box-sizing: content-box; /* so when glow, ball doesn't change size, glowing border will be added to the outside. seems broken in many browsers */
+}
+.shadow, .blood, .wind, .control {
+    display: none; /* not all animation has these elements */
+}
+.shadowjump, .shadowoneJump {
+    display: inherit;
+    position: absolute;
+    top: 42.5vh;
+    left: 24.6vw;
+    width: 4vw;
+    height: 1vh;
+    background-color: #313131;
+    border-radius: 50%;
+    opacity: 1;
+}
+#stop {
+    z-index: 1;
+    width: 13vw;
+    height: 13vw;
+    border-radius: 50%;
+    background-color: yellow;
+    text-align: center;
+    padding: 1vw;
+    padding-top: 3vw;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 2.2vw;
+    line-height: 2vw;
+    position: absolute;
+    right: 3vw;
+    top: 67vh;
+}
+.buttonArea {
+    width: 75vw;
+    margin-left: 7vw;
+    margin-bottom: 1em;
+}
+button {
+    width: 19%;
+    min-width: 100px;
+    height: 3em;
+    vertical-align: middle;
+    margin-top: .5em;
+    border: 1px dotted black;
+    background-color: #ccc;
+    border-radius: .5em;
+}
+button:focus {
+    color: white;
+}
+.codeAndUnfinished {
+    background: black;
+    margin-top: 1em;
+    padding: 2em;
+    padding-left: 7vw;
+    height: auto;
+    position: relative;
+    color: #bbb;
+}
+h2 {
+    margin-bottom: 1em;
+    color: #777;
+    font-weight: bold;
+}
+h3 {
+    font-size: 2em;
+}
+.note {
+    height: 2em;
+    overflow: hidden;
+    width: 100vw;
+}
+.js img {
+    width: 643px;
+}
+.unfinished > ul {
+    height: 7em;
+    overflow: scroll;
+}
+li {
+    margin-bottom: .3em;
+}
+/* animations */
+.move {
+    animation: move 4s linear forwards;
+}
+@keyframes move {
+    to {
+        transform: translate(93vw, 0) rotate(1800deg);
+    }
+}
+.moveTo30 {
+    animation: moveTo30 1.2s forwards cubic-bezier(0, 0, 0.4, 1.13);
+}
+@keyframes moveTo30 {
+    to {
+        transform: translateX(30vw) rotate(540deg);
+    }
+}
+.moveFrom30 {
+    animation: moveFrom30 2.8s forwards cubic-bezier(0.65, 0, 0.68, 1.27);
+}
+@keyframes moveFrom30 {
+    0% {
+        transform: translateX(30vw) rotate(540deg) scale(1);
+    }
+    100% {
+        transform: translateX(84.3vw) rotate(1260deg) scale(1);
+    }
+}
+.oneJump {
+    animation: oneJump .7s forwards;
+}
+@keyframes oneJump {
+    0% {
+        transform: translate(30vw, 0) rotate(0);
+    }
+    45% {
+        transform: translate(30vw, -37vh);
+        animation-timing-function: ease-out;
+    }
+    90% {
+        transform: translate(30vw, 0);
+        animation-timing-function: ease-in;
+    }
+    92% {
+        transform: translate(30vw, .5vh) scale(1.2, .8);
+        animation-timing-function: ease-out;
+    }
+    94% {
+        transform: translate(30vw, .5vh) scale(.8, 1.2);
+    }
+    100% {
+        transform: translate(30vw, 0) scale(1);
+    }
+}
+.shadowoneJump {
+    animation: shadowOne .7s cubic-bezier(0,-0.01, 0.07, 1);
+}
+@keyframes shadowOne {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    45% {
+        transform: scale(.3);
+        opacity: 5;
+    }
+    93% {
+        transform: scale(1.1, 1);
+        opacity: 1;
+    }
+}
+.jump {
+    animation: jump 1s cubic-bezier(0, 0, 0, 1) infinite forwards;
+}
+@keyframes jump {
+    0% {
+        transform: translate(30vw, 1.5vh) rotate(0);
+    }
+    50% {
+        transform: translate(30vw, -37vh) /*rotate(170deg)*/ scale(.95);
+    }
+    55% {
+        transform: translate(30vw, -35vh) /*rotate(180deg)*/ scale(.98);
+    }
+    90% {
+        transform: translate(30vw, 0vh) /*rotate(324deg)*/ scale(1);
+    }
+    95% {
+        transform: translate(30vw, 1.5vh) /*rotate(342deg)*/ scale(1.2, .8);
+    }
+    100% {
+        transform: translate(30vw, 2vh) /*rotate(360deg)*/ scale(1.5, .6);
+    }
+}
+.shadowjump {
+    animation: shadow 1s cubic-bezier(0, 0, 0, 1) infinite;
+}
+@keyframes shadow {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(.3);
+        opacity: .5;
+    }
+    95% {
+        transform: scale(1.2, .7);
+        opacity: 1;
+    }
+}
+.fade {
+    animation: fade 3s ease-out forwards;
+}
+@keyframes fade {
+    0% {
+        transform: translate(30vw, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(30vw, 0);
+        opacity: 0;
+    }
+}
+div.bgfade {
+    animation: darkenBackground .1s forwards;
+}
+@keyframes darkenBackground {
+    to {
+        background: #111;
+    }
+}
+.glow {
+    animation: glow 2.4s infinite ease-out;
+}
+@keyframes glow {
+    0%, 100% {
+        transform: translate(30vw, 0);
+        opacity: .5;
+        filter: drop-shadow(0);
+    }
+    50% {
+        transform: translate(30vw, 0);
+        filter: drop-shadow(0px -3px 17px rgba(255,255,0, .5));
+        opacity: 1;
+    }
+}
+div.bgglow {
+    animation: darkenBackground 1s forwards;
+}
+.fallDown {
+    animation: fallDawn 1s cubic-bezier(1, 0, 1, 1) forwards;
+}
+@keyframes fallDawn {
+    0%, 20%, 40% {
+        transform: translate(30vw, 0) rotateY(0);
+    }
+    10% {
+        transform: translate(30vw, 0) rotateY(30deg);
+    }
+    30%, 50% {
+        transform: translate(30vw, 0) rotateY(-30deg);
+    }
+    100% {
+        transform: translate(30vw, 0) rotateY(-30deg) rotateX(90deg);
+        transform-origin: bottom;}
+}
+.bloodfallDodn {
+    animation: blood .5s 1s forwards;
+}
+@keyframes blood {
+
+}
+.shake {
+    animation: shake .1s linear 4 forwards;
+}
+@keyframes shake {
+    from {
+        transform: translate(30vw, 0);
+    }
+    to {
+        transform: translate(30.3vw, .3vw);
+    }
+}
+.mirror {
+    animation: mirror .15s ease-in forwards;
+}
+@keyframes mirror {
+    0% {
+        transform: translate(30vw, 0) scale(1, 1);
+    }
+    70% {
+        transform: translate(55vw, 0) scale(.5, 1);
+        opacity: .5;
+    }
+    80% {
+        transform: translate(60vw, 0) scale(0, 1);
+        opacity: 0;
+    }
+    90% {
+        transform: translate(65vw, 0) scale(-.5, 1);
+        opacity: .5;
+    }
+    100% {
+        transform: translate(70vw, 0) scale(-1, 1);
+        opacity: 1;
+    }
+}
+.sneak {
+    animation: sneak 10s forwards;
+}
+@keyframes sneak {
+    0% {
+        transform: translate(0, 0) scale(1);
+        border: none;
+    }
+    10%, 12%, 14%, 16% {
+        transform: translate(15vw, 0) scale(1) rotate(60deg);
+        animation-timing-function: ease-in;
+        border: none;
+    }
+    11%, 13%, 15% {
+        transform: translate(15vw, -1vh) scale(.8, 1.2) rotate(60deg);
+        animation-timing-function: ease-out;
+        border: none;
+    }
+    19% {
+        transform: translate(17vw, -5vh) scale(1) rotate(60deg);
+        animation-timing-function: ease-in;
+        border: none;
+    }
+    21% {
+        transform: translate(19vw, 1vh) scale(1.1) rotate(60deg);
+        animation-timing-function: ease-in;
+        border: none;
+    }
+    23% {
+        transform: translate(21vw, -3vh) scale(1.1) rotate(60deg);
+        animation-timing-function: ease-in;
+        border: none;
+    }
+    25% {
+        transform: translate(23vw, 4vh) scale(1.2) rotate(60deg);
+        animation-timing-function: ease-out;
+        border: none;
+    }
+    27% {
+        transform: translate(26vw, -1vh) scale(1.2) rotate(60deg);
+        animation-timing-function: ease-in;
+        border: none;
+    }
+    28% {
+        transform: translate(29vw, 9vh) scale(1.5) rotate(60deg);
+        animation-timing-function: ease-in;
+        border: none;
+    }
+    45% {
+        transform: translate(33vw, 9vh) scale(1.5) rotate(90deg);
+        animation-timing-function: ease-out;
+        border: none;
+    }
+    51% {
+        transform: translate(45vw, 10vh) scale(2.4, .5) rotate(90deg);
+        animation-timing-function: ease-out;
+        border: none;
+    }
+    52% {
+        transform: translate(50vw, 9vh) scale(1.5) rotate(90deg);
+        animation-timing-function: ease-in;
+        border: none;
+    }
+    53% {
+        transform: translate(70vw, 5vh) scale(1.2) rotate(1080deg);
+        border: none;
+        animation-timing-function: ease-in;
+    }
+    63% {
+        transform: translate(120vw, -10vh) scale(.9) rotate(1800deg);
+        animation-timing-function: ease-in;
+    }
+    77% {
+        transform: translate(70vw, -15vh) scale(.5) rotate(-240deg);
+        animation-timing-function: ease-in;
+        border: 3px solid rgba(255,255,0, .5);
+    }
+    80% {
+        transform: translate(68vw, -18vh) scale(.5) rotate(-480deg);
+        animation-timing-function: ease-in;
+        border: 3px solid rgba(255,255,0, .5);
+    }
+    83% {
+        transform: translate(66vw, -15vh) scale(.5) rotate(-720deg);
+        animation-timing-function: ease-in;
+        border: 3px solid rgba(255,255,0, .5);
+    }
+    86% {
+        transform: translate(64vw, -18vh) scale(.5) rotate(-960deg);
+        animation-timing-function: ease-in;
+        border: 3px solid rgba(255,255,0, .5);
+    }
+    89% {
+        transform: translate(62vw, -15vh) scale(.5) rotate(-1200deg);
+        animation-timing-function: ease-in;
+        border: 3px solid rgba(255,255,0, .5);
+    }
+    93% {
+        transform: translate(36vw, -25vh) scale(.3) rotate(-2400deg);
+        animation-timing-function: ease-in;
+        border: 7px solid rgba(255,255,0, .5);
+    }
+    100% {
+        transform: translate(0, -30vh) scale(0) rotate(-4800deg);
+        animation-timing-function: ease-in;
+        border: 11px solid rgba(255,255,0, .5);
+    }
+}
+div.bgsneak {
+    animation: darkenBackground .5s 6s forwards;
+}
