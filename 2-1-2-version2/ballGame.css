@@ -141,67 +141,92 @@ li {
     }
 }
 .oneJump {
-    animation: oneJump .7s forwards;
+    animation: oneJump 1s forwards;
 }
 @keyframes oneJump {
-    0% {
-        transform: translate(30vw, 0) rotate(0);
+    0%, 10% {
+        transform: translate(30vw, 0);
+        animation-timing-function: cubic-bezier(0,0,0,1);
+    }
+    5% {
+        transform: translate(30vw, 0) scale(1.5, .6);
+        transform-origin: bottom;
+        animation-timing-function: cubic-bezier(1,0,1,1);
     }
     45% {
-        transform: translate(30vw, -37vh);
-        animation-timing-function: ease-out;
+        transform: translate(30vw, -33vh);
+        animation-timing-function: cubic-bezier(1,0,1,1);
     }
     90% {
         transform: translate(30vw, 0);
-        animation-timing-function: ease-in;
-    }
-    91% {
-        transform: translate(30vw, .5vh) scale(1.1, .9);
         animation-timing-function: ease-out;
+    }
+    93% {
+        transform: translate(30vw, .5vh) scale(1.1, .9);
+        animation-timing-function: ease-in;
     }
     100% {
         transform: translate(30vw, 0) scale(1);
     }
 }
 .shadowoneJump {
-    animation: shadowOne .7s cubic-bezier(0,-0.01, 0.07, 1);
+    animation: shadowOne 1s cubic-bezier(0,-0.01, 0.07, 1);
 }
 @keyframes shadowOne {
-    0%, 100% {
+    0%, 10%, 100% {
         transform: scale(1);
         opacity: 1;
+        animation-timing-function: cubic-bezier(0,0,0,1);
+
+    }
+    5% {
+        transform: scale(1.5);
+        opacity: 1;
+        animation-timing-function: cubic-bezier(1,0,1,1);
+
     }
     45% {
         transform: scale(.3);
         opacity: 5;
-    }
-    91% {
-        transform: scale(1.1, 1);
-        opacity: 1;
-    }
-}
-.jump {
-    animation: jump 10s infinite;
-}
-@keyframes jump {
-    0% {
-        transform: translate(30vw, 1.5vh) rotate(0);
-        animation-timing-function: cubic-bezier(0,0,0,1);
-    }
-    50% {
-        transform: translate(30vw, -33vh) scale(.95);
         animation-timing-function: cubic-bezier(1,0,1,1);
     }
     90% {
-        transform: translate(30vw, 0vh) scale(1);
-    }
-    95% {
-        transform: translate(30vw, 1.5vh) scale(1.2, .8);
+        transform: scale(1);
+        opacity: 1;
         animation-timing-function: ease-out;
     }
-    100% {
-        transform: translate(30vw, 2vh) scale(1.5, .6);
+    93% {
+        transform: scale(1.1);
+        opacity: 1;
         animation-timing-function: ease-in;
+    }
+}
+.jump {
+    animation: jump 1s infinite;
+}
+@keyframes jump {
+    0% {
+        transform: translate(30vw, -37vh) scale(.95);
+        animation-timing-function: cubic-bezier(1,0,1,1);
+    }
+    45% {
+        transform: translate(30vw, .3vh);
+        animation-timing-function: cubic-bezier(1,0,1,1);
+    }
+    50% {
+        transform: translate(30vw, .4vh) scale(1.2, .8);
+        animation-timing-function: ease-out;
+    }
+    55% {
+        transform: translate(30vw, 1.3vh) scale(1.5, .6);
+        animation-timing-function: ease-in;
+    }
+    60% {
+        transform: translate(30vw, .4vh) scale(.9, 1.1);
+        animation-timing-function: cubic-bezier(0,0,0,1);
+    }
+    100% {
+        transform: translate(30vw, -37vh) scale(.95);
     }
 }
 .shadowjump {
@@ -209,28 +234,28 @@ li {
 }
 @keyframes shadow {
     0% {
-        transform: scale(1.5);
-        opacity: 1;
-        animation-timing-function: cubic-bezier(0,0,0,1);
-    }
-    50% {
         transform: scale(.7);
         opacity: .3;
         animation-timing-function: cubic-bezier(1,0,1,1);
     }
-    90% {
-        transform: scale(1.5);
-        opacity: 1;
+    45% {
+        transform: scale(1.7);
+        opacity: .7;
+        animation-timing-function: cubic-bezier(1,0,1,1);
     }
-    95% {
-        transform: scale(1.7, .7);
-        opacity: 1;
-        animation-timing-function: ease-out;
+    50%, 60% {
+        transform: scale(1.9);
+        opacity: .7;
+        animation-timing-function: cubic-bezier(0,0,0,1);
+    }
+    55% {
+        transform: scale(2.5);
+        opacity: .7;
+        animation-timing-function: ease-in;
     }
     100% {
-        transform: scale(2.5, .6);
-        opacity: 1;
-        animation-timing-function: ease-in;
+        transform: scale(.7);
+        opacity: .3;
     }
 }
 .fade {
