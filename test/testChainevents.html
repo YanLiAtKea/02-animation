@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        img {
+            width: 30px;
+            height: 30px;
+        }
+        .scale {
+            transform: scale(3);
+        }
+        .fade {
+            animation: fade 1s;
+        }
+        @keyframes fade {
+            to {
+                opacity: 0;
+            }
+        }
+    </style>
+    <title>test chainevents</title>
+</head>
+
+<body>
+    <video controls>
+        <source src="videos/big_buck_bunny.ogv" type="video/ogg">
+        <source src="videos/big_buck_bunny.mp4" type="video/mp4">
+    </video>
+    <audio controls>
+        <source src="videos/horse.mp3" type="audio/mpeg">
+    </audio>
+    <img src="ball.png">
+
+    <script>
+        let ball = document.querySelector("img");
+        let vd = document.querySelector("video");
+        let ad = document.querySelector("audio");
+        ad.addEventListener('ended', scaleBall);
+        function scaleBall(){
+            ball.classList.add("scale");
+        };
+        vd.addEventListener('ended', fadeBall);
+        function fadeBall(){
+            ball.classList.add("fade");
+        };
+    </script>
+</body>
+</html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="">

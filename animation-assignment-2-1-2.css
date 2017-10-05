@@ -29,7 +29,7 @@ body {
     position: absolute;
     bottom: 17vh;
     margin-left: -7vw; /*out of scene, but visible on page*/
-    box-sizing: content-box; /* so when glow, ball doesn't change size, glowing border will be added to the outside*/
+    box-sizing: content-box; /* so when glow, ball doesn't change size, glowing border will be added to the outside. seems broken in many browsers */
 }
 .shadow {
     display: none; /* not all animation has shadow */
@@ -258,6 +258,15 @@ div.bgfade {
     animation: glow 2.4s infinite ease-out;
 }
 @keyframes glow {
+    0%, 100% {
+        transform: translate(30vw, 0);
+        filter: drop-shadow(0);
+    }
+    50% {
+        transform: translate(30vw, 0);
+        filter: drop-shadow(0px -7px 17px rgba(255,255,0, .5));
+    }
+/*
     0% {
         opacity: .5;
         border: 1px dashed rgba(255,255,0, .2);
@@ -269,6 +278,7 @@ div.bgfade {
         transform: translate(29vw, 1vw); /* adjust position according to border width so ball doesn't move, content-box sizing
         BUT glow shouldn't look like this, should reflect on ground*/
     }
+/*
     50% {
         opacity: .2;
         border: 1px dashed rgba(255,255,0, .2);
@@ -284,7 +294,7 @@ div.bgfade {
         border: 1px dashed rgba(255,255,0, .2);
         transform: translate(30vw, 0);
     }
-}
+} */
 div.bgglow {
     animation: darkenBackground 1s forwards;
 }
@@ -425,37 +435,37 @@ div.bgglow {
     77% {
         transform: translate(70vw, -15vh) scale(.5) rotate(-240deg);
         animation-timing-function: ease-in;
-        border: 3px solid gold;
+        border: 3px solid rgba(255,255,0, .5);
     }
     80% {
         transform: translate(68vw, -18vh) scale(.5) rotate(-480deg);
         animation-timing-function: ease-in;
-        border: 3px solid gold;
+        border: 3px solid rgba(255,255,0, .5);
     }
     83% {
         transform: translate(66vw, -15vh) scale(.5) rotate(-720deg);
         animation-timing-function: ease-in;
-        border: 3px solid gold;
+        border: 3px solid rgba(255,255,0, .5);
     }
     86% {
         transform: translate(64vw, -18vh) scale(.5) rotate(-960deg);
         animation-timing-function: ease-in;
-        border: 3px solid gold;
+        border: 3px solid rgba(255,255,0, .5);
     }
     89% {
         transform: translate(62vw, -15vh) scale(.5) rotate(-1200deg);
         animation-timing-function: ease-in;
-        border: 3px solid gold;
+        border: 3px solid rgba(255,255,0, .5);
     }
     93% {
         transform: translate(36vw, -25vh) scale(.3) rotate(-2400deg);
         animation-timing-function: ease-in;
-        border: 7px solid gold;
+        border: 7px solid rgba(255,255,0, .5);
     }
     100% {
         transform: translate(0, -30vh) scale(0) rotate(-4800deg);
         animation-timing-function: ease-in;
-        border: 11px solid gold;
+        border: 11px solid rgba(255,255,0, .5);
     }
 }
 div.bgsneak {
