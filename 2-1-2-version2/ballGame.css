@@ -29,8 +29,7 @@ body {
     border-radius: 50%;
     position: absolute;
     bottom: 17vh;
-    margin-left: -7vw; /*out of scene, but visible on page*/
-    box-sizing: content-box; /* so when glow, ball doesn't change size, glowing border will be added to the outside. seems broken in many browsers */
+    margin-left: -7vw; /*out of scene */
 }
 .shadow, .blood, .wind, .control {
     display: none; /* not all animation has these elements */
@@ -39,7 +38,7 @@ body {
     display: inherit;
     position: absolute;
     top: 42.5vh;
-    left: 24.6vw;
+    left: 24.5vw;
     width: 4vw;
     height: 1vh;
     background-color: #313131;
@@ -119,15 +118,15 @@ li {
 }
 @keyframes move {
     to {
-        transform: translate(93vw, 0) rotate(1800deg);
+        transform: translate(93vw, 0) rotate(1440deg);
     }
 }
 .moveTo30 {
-    animation: moveTo30 1.2s forwards cubic-bezier(0, 0, 0.4, 1.13);
+    animation: moveTo30 1s forwards cubic-bezier(0, 0, 0.4, 1.23);
 }
 @keyframes moveTo30 {
     to {
-        transform: translateX(30vw) rotate(540deg);
+        transform: translateX(30vw) rotate(367deg);
     }
 }
 .moveFrom30 {
@@ -135,10 +134,10 @@ li {
 }
 @keyframes moveFrom30 {
     0% {
-        transform: translateX(30vw) rotate(540deg) scale(1);
+        transform: translateX(30vw) rotate(367deg) scale(1);
     }
     100% {
-        transform: translateX(84.3vw) rotate(1260deg) scale(1);
+        transform: translateX(84.3vw) rotate(1240deg) scale(1);
     }
 }
 .oneJump {
@@ -156,12 +155,9 @@ li {
         transform: translate(30vw, 0);
         animation-timing-function: ease-in;
     }
-    92% {
-        transform: translate(30vw, .5vh) scale(1.2, .8);
+    91% {
+        transform: translate(30vw, .5vh) scale(1.1, .9);
         animation-timing-function: ease-out;
-    }
-    94% {
-        transform: translate(30vw, .5vh) scale(.8, 1.2);
     }
     100% {
         transform: translate(30vw, 0) scale(1);
@@ -171,7 +167,7 @@ li {
     animation: shadowOne .7s cubic-bezier(0,-0.01, 0.07, 1);
 }
 @keyframes shadowOne {
-    0% {
+    0%, 100% {
         transform: scale(1);
         opacity: 1;
     }
@@ -179,7 +175,7 @@ li {
         transform: scale(.3);
         opacity: 5;
     }
-    93% {
+    91% {
         transform: scale(1.1, 1);
         opacity: 1;
     }
@@ -256,8 +252,8 @@ div.bgfade {
     }
     50% {
         transform: translate(30vw, 0);
-        filter: drop-shadow(0px -3px 17px rgba(255,255,0, .5));
-        opacity: 1;
+        filter: drop-shadow(0 -.5vw 3vw rgba(255,255,0, .5));
+        opacity: .7;
     }
 }
 div.bgglow {
