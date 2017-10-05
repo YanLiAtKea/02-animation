@@ -181,43 +181,56 @@ li {
     }
 }
 .jump {
-    animation: jump 1s cubic-bezier(0, 0, 0, 1) infinite forwards;
+    animation: jump 10s infinite;
 }
 @keyframes jump {
     0% {
         transform: translate(30vw, 1.5vh) rotate(0);
+        animation-timing-function: cubic-bezier(0,0,0,1);
     }
     50% {
-        transform: translate(30vw, -37vh) /*rotate(170deg)*/ scale(.95);
-    }
-    55% {
-        transform: translate(30vw, -35vh) /*rotate(180deg)*/ scale(.98);
+        transform: translate(30vw, -33vh) scale(.95);
+        animation-timing-function: cubic-bezier(1,0,1,1);
     }
     90% {
-        transform: translate(30vw, 0vh) /*rotate(324deg)*/ scale(1);
+        transform: translate(30vw, 0vh) scale(1);
     }
     95% {
-        transform: translate(30vw, 1.5vh) /*rotate(342deg)*/ scale(1.2, .8);
+        transform: translate(30vw, 1.5vh) scale(1.2, .8);
+        animation-timing-function: ease-out;
     }
     100% {
-        transform: translate(30vw, 2vh) /*rotate(360deg)*/ scale(1.5, .6);
+        transform: translate(30vw, 2vh) scale(1.5, .6);
+        animation-timing-function: ease-in;
     }
 }
 .shadowjump {
-    animation: shadow 1s cubic-bezier(0, 0, 0, 1) infinite;
+    animation: shadow 1s infinite;
 }
 @keyframes shadow {
     0% {
-        transform: scale(1);
+        transform: scale(1.5);
         opacity: 1;
+        animation-timing-function: cubic-bezier(0,0,0,1);
     }
     50% {
-        transform: scale(.3);
-        opacity: .5;
+        transform: scale(.7);
+        opacity: .3;
+        animation-timing-function: cubic-bezier(1,0,1,1);
+    }
+    90% {
+        transform: scale(1.5);
+        opacity: 1;
     }
     95% {
-        transform: scale(1.2, .7);
+        transform: scale(1.7, .7);
         opacity: 1;
+        animation-timing-function: ease-out;
+    }
+    100% {
+        transform: scale(2.5, .6);
+        opacity: 1;
+        animation-timing-function: ease-in;
     }
 }
 .fade {
@@ -276,7 +289,7 @@ div.bgglow {
         transform: translate(30vw, 0) rotateY(-30deg) rotateX(90deg);
         transform-origin: bottom;}
 }
-.bloodfallDodn {
+.bloodfallDown {
     animation: blood .5s 1s forwards;
 }
 @keyframes blood {
