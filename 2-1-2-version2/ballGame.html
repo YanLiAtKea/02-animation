@@ -9,9 +9,21 @@
 
 <body>
     <div class="scene">
-        <div class="ballHorizontal"><div class="ballVertical"><img class="ball" src="ball.png" alt="a ball"></div></div>
-        <div class="ball2Horizontal"><div class="ball2Vertical"><img class="ball2" src="ball2.png" alt="another ball"></div></div>
-        <div class="ball3Horizontal"><div class="ball3Vertical"><img class="ball3" src="ball3.png" alt="third ball"></div></div>
+        <div class="ballWrapper ballHorizontal">
+            <div class="ballWrapper ballVertical">
+                <img id="ball" src="ball.png" alt="a ball">
+            </div>
+        </div>
+        <div class="ballWrapper ball2Horizontal">
+            <div class="ballWrapper ball2Vertical">
+                <img id="ball2" src="ball2.png" alt="another ball">
+            </div>
+        </div>
+        <div class="ballWrapper ball3Horizontal">
+            <div class="ballWrapper ball3Vertical">
+                <img id="ball3" src="ball3.png" alt="third ball">
+            </div>
+        </div>
         <div class="horizon"></div>
         <div class="shadow"></div>
         <div class="blood"></div>
@@ -28,7 +40,7 @@
     <div class="buttonArea buttonAreaSimple">
         <button id="move" class="button">calm ball cross screen</button>
         <button id="moveTo30" class="button">run on stage to 1/3</button>
-        <button id="moveFrom30" class="button">blow away from 1/3</button>
+        <button id="moveFrom30" class="button">blown away from 1/3</button>
         <button id="oneJump" class="button">power one jump</button>
         <button id="jump" class="button">drop &amp; bounce</button>
         <button id="fade" class="button">fade</button>
