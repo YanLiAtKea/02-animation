@@ -10,19 +10,21 @@ document.addEventListener('click', function(clickedElem){
     let wind = document.querySelector('.wind');
     let blood = document.querySelector('.blood');
     //different animation
-    if ( clicked !== "" && clicked !== "moveFrom30"){
+    if ( clicked !== ""){
         let movement = clickedElem.target.id;
         ball.className = movement;
         ball2Vertical.className = ("ball2Vertical" + movement);
         ball2Horizontal.className = ("ball2Horizontal" + movement);
         background.className = ("scene bg" + movement); shadow.className = ("shadow shadow" + movement);
-    } else if (clicked == "moveFrom30"){
-        let windAudio = document.querySelector('audio#wind');
-        windAudio.play();
-        windAudio.volume = .7;
-        let movement = clickedElem.target.id;
-        ball.className = movement;
-        wind.className = ("wind wind" + movement);
-        shadow.className = ("shadow");
+        wind.className = ("wind"); // need this to reset wind to original state, otherwise won't be fired when click moveFrom30 then something new then click moveFrom30 again
+        if (ball.className == "moveFrom30"){
+            let windAudio = document.querySelector('audio#wind');
+            windAudio.play();
+            windAudio.volume = .7;
+            let movement = clickedElem.target.id;
+            ball.className = movement;
+            wind.className = ("wind wind" + movement);
+            shadow.className = ("shadow");
+        }
     }
 });
