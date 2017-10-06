@@ -8,6 +8,9 @@
 </head>
 
 <body>
+    <audio id="rushOnStage">
+        <source src="fast-simple-chop-5.aif" type="audio/mpeg">
+    </audio>
     <audio id="wind">
         <source src="wind.mp3" type="audio/mpeg">
     </audio>
@@ -48,9 +51,9 @@
             <div id="zoomOut">zoom out</div>
         </div>
     </div>
-    <div id="stop">STOP<br>&amp;<br>RESTART</div>
     <div class="buttonArea buttonAreaSimple">
-       <p>10 refined for assignment</p>
+        <div id="stop">STOP<br>&amp;<br>RESTART</div>
+        <p>10 refined for assignment</p>
         <button id="move" class="button">calm ball cross stage</button>
         <button id="moveTo30" class="button">run on stage to 1/3</button>
         <button id="moveFrom30" class="button">blow the ball away</button>
@@ -87,7 +90,7 @@
         <div class="note unfinished">
             <h3>Issues</h3>
             <ul>
-                <li>x: lots of resetting class in JS for the first 10 animations. needed? </li>
+                <li>!: use the "overwrite class approach, second click on the button won't trigger animation again but will trigger audio again. Check activeElement vs. just-clicked and restrict second click behavior can only solve half the problem, as user can also click and start an animation, click somewhere else and then click the same button again before the animation and sound are finished, so the sound will still be overlapping and the ball won't go back to original state. So restrict second click based on audio play status?</li>
                 <li>? when ball hits ground, set scale origin point so bottom flatter than top?</li>
                 <li>! glow works in Chrome/Opera/Brave.</li>
                 <li>? click other button can't pause and reset single bounce sound</li>

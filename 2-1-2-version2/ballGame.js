@@ -31,6 +31,12 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
             });
         }
     }
+    //hide volumeIcons when click on STOP
+document.querySelector('#stop').addEventListener('click', hideVolumeIcon);
+    function hideVolumeIcon(){
+        document.getElementById('volumeOn').style.display = "none";
+        document.getElementById('volumeOff').style.display = "none";
+    }
     // stop and reset all audio, so even click back this button, audio won't just resume
     function stopOtherAudio() {
         allAudios.forEach(function (playing) {
