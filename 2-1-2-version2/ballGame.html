@@ -8,8 +8,8 @@
 </head>
 
 <body>
-    <audio id="rushOnStage">
-        <source src="fast-simple-chop-5.aif" type="audio/mpeg">
+    <audio id="chu">
+        <source src="chu.mp3" type="audio/mpeg">
     </audio>
     <audio id="wind">
         <source src="wind.mp3" type="audio/mpeg">
@@ -36,8 +36,9 @@
         </div>
         <div class="horizon"></div>
         <div class="shadow"></div>
-        <div class="blood"></div>
         <div class="wind"></div>
+        <div class="blood"></div>
+        <div class="eyes"></div>
         <div class="control volumeControl">
             <img class="volume" id="volumeOn" src="volume-on.png" alt="volume on icon">
             <img class="volume" id="volumeOff" src="volume-off.jpg" alt="volume off icon">
@@ -55,7 +56,7 @@
         <div id="stop">STOP<br>&amp;<br>RESTART</div>
         <p>10 refined for assignment</p>
         <button id="move" class="button">calm ball cross stage</button>
-        <button id="moveTo30" class="button">run on stage to 1/3</button>
+        <button id="moveTo30" class="button">rush on stage to 1/3</button>
         <button id="moveFrom30" class="button">blow the ball away</button>
         <button id="oneJump" class="button">power one jump</button>
         <button id="jump" class="button">drop &amp; bounce</button>
@@ -91,6 +92,7 @@
             <h3>Issues</h3>
             <ul>
                 <li>!: use the "overwrite class approach, second click on the button won't trigger animation again but will trigger audio again. Check activeElement vs. just-clicked and restrict second click behavior can only solve half the problem, as user can also click and start an animation, click somewhere else and then click the same button again before the animation and sound are finished, so the sound will still be overlapping and the ball won't go back to original state. So restrict second click based on audio play status?</li>
+                <li>! sound on / off indication </li>
                 <li>? when ball hits ground, set scale origin point so bottom flatter than top?</li>
                 <li>! glow works in Chrome/Opera/Brave.</li>
                 <li>? click other button can't pause and reset single bounce sound</li>

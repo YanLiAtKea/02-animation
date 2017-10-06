@@ -7,6 +7,7 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
     let wind = document.querySelector('.wind');
     let blood = document.querySelector('.blood');
     let allAudios = document.querySelectorAll('audio');
+    let chuAudio = document.querySelector('audio#chu');
     let windAudio = document.querySelector('audio#wind');
     let ballAudio = document.querySelector('audio#bounce');
     let volumeOn = document.querySelector('#volumeOn');
@@ -31,13 +32,13 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
             });
         }
     }
-    //hide volumeIcons when click on STOP.
-    // probably shouldn't clear this, otherwise lose sight of if sound is on or off
+//hide volumeIcons when click on STOP.
+// probably shouldn't clear this, otherwise lose sight of if sound is on or off
 /*document.querySelector('#stop').addEventListener('click', hideVolumeIcon);
     function hideVolumeIcon(){
-        document.getElementById('volumeOn').style.display = "none";
-        document.getElementById('volumeOff').style.display = "none";
+    document.getElementById('volumeOn').style.display = "none";        document.getElementById('volumeOff').style.display = "none";
     } */
+
     // stop and reset all audio, so even click back this button, audio won't just resume
     function stopOtherAudio() {
         allAudios.forEach(function (playing) {
@@ -59,8 +60,11 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
         background.className = ("scene");
         shadow.className = ("shadow");
         wind.className = ("wind");
-
-        if (movement == "moveFrom30") {
+        if (movement == "moveTo30"){
+            toggleVolume();
+            stopOtherAudio();
+            chuAudio.play();
+        } else if (movement == "moveFrom30") {
             toggleVolume();
             stopOtherAudio();
             windAudio.play();

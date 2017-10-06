@@ -144,7 +144,7 @@ li {
     }
 }
 .moveTo30 {
-    animation: moveTo30 .5s .13s forwards cubic-bezier(0, 0, 0.5, 1.3);
+    animation: moveTo30 .29s .13s forwards cubic-bezier(0, 0, 0.5, 1.3);
 }
 @keyframes moveTo30 {
     to {
