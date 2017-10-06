@@ -130,7 +130,7 @@ li {
     }
 }
 .moveFrom30 {
-    animation: moveFrom30 2.8s forwards cubic-bezier(0.65, 0, 0.68, 1.27);
+    animation: moveFrom30 4s forwards cubic-bezier(0.65, 0, 0.68, 1.27);
 }
 @keyframes moveFrom30 {
     0% {
@@ -157,16 +157,17 @@ li {
     0% {
         opacity: .2;
         transform: translateX(-8vw);
-        animation-timing-function: linear;
+        animation-timing-function: ease-in;
     }
-    33% {
+    43% {
         opacity: .7;
         transform: translateX(3vw);
-        animation-timing-function: ease-out;
+        animation-timing-function: ease-in;
     }
     100% {
         opacity: 0;
-        transform: translateX(24vw);
+        transform: translateX(41vw);
+        animation-timing-function: ease-out;
     }
 }
 .oneJump {

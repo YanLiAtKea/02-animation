@@ -16,13 +16,13 @@ document.addEventListener('click', function(clickedElem){
         ball2Vertical.className = ("ball2Vertical" + movement);
         ball2Horizontal.className = ("ball2Horizontal" + movement);
         background.className = ("scene bg" + movement); shadow.className = ("shadow shadow" + movement);
-    }
-    if (clicked == "moveFrom30"){
+    } else if (clicked == "moveFrom30"){
         let windAudio = document.querySelector('audio#wind');
         windAudio.play();
         windAudio.volume = .7;
         let movement = clickedElem.target.id;
         ball.className = movement;
         wind.className = ("wind wind" + movement);
+        shadow.className = ("shadow");
     }
 });
