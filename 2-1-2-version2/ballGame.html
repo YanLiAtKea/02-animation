@@ -8,6 +8,13 @@
 </head>
 
 <body>
+    <audio id="wind">
+        <source src="wind.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="bounce">
+        <source src="bounce.wav" type="audio/mpeg">
+    </audio>
+
     <div class="scene">
         <div class="ballWrapper ballHorizontal">
             <div class="ballWrapper ballVertical">
@@ -37,13 +44,11 @@
             <div id="zoomIn">zoom in</div>
             <div id="zoomOut">zoom out</div>
         </div>
-        <audio id="wind">
-            <source src="wind.mp3" type="audio/mpeg">
-        </audio>
     </div>
     <div id="stop">STOP<br>&amp;<br>RESTART</div>
     <div class="buttonArea buttonAreaSimple">
-        <button id="move" class="button">calm ball cross screen</button>
+       <p>10 refined for assignment</p>
+        <button id="move" class="button">calm ball cross stage</button>
         <button id="moveTo30" class="button">run on stage to 1/3</button>
         <button id="moveFrom30" class="button">blow the ball away</button>
         <button id="oneJump" class="button">power one jump</button>
@@ -55,12 +60,14 @@
         <button id="mirror" class="button">mirror</button>
     </div>
     <div class="buttonArea buttonAreaMore">
+       <p>experimental: seperate horizontal &amp; vertical motions&#64;CSS; other trigger&#64;JS</p>
         <button id="bounceWithForce">power bounce</button>
         <button id="bounceNatural">natural bounce</button>
         <button id="sneak" class="button">sneaking around</button>
         <button id="userControl">USER CONTROL</button>
     </div>
     <div class="buttonArea moreBalls">
+       <p>stories</p>
         <button id="moreCome">Here comes another one!</button>
         <button id="compete">who is boss?</button>
         <button id="dead">Ohhh, i'm so dead..</button>
@@ -77,10 +84,10 @@
         <div class="note unfinished">
             <h3>Issues</h3>
             <ul>
-                <li>+ one jump: preperation</li>
+                <li>x: lots of resetting class in JS for the first 10 animations. needed? </li>
                 <li>? when ball hits ground, set scale origin point so bottom flatter than top?</li>
                 <li>! glow works in Chrome/Opera/Brave.</li>
-                <li>* nest 2 divs around the ball so that its horizontal and vertical motions can be set seperately</li>
+                <li>? click other button can't pause and reset single bounce sound</li>
             </ul>
         </div>
     </div>

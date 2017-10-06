@@ -67,6 +67,9 @@ body {
     margin-left: 7vw;
     margin-bottom: 1em;
 }
+.buttonArea p {
+    color: #777;
+}
 button {
     width: 19%;
     min-width: 100px;
@@ -95,7 +98,7 @@ h2 {
     font-weight: bold;
 }
 h3 {
-    font-size: 2em;
+    font-size: 1.7em;
 }
 .note {
     height: 2em;
@@ -110,7 +113,7 @@ h3 {
     overflow: scroll;
 }
 li {
-    margin-bottom: .3em;
+    margin-bottom: .1em;
 }
 /* animations */
 .move {
@@ -122,7 +125,7 @@ li {
     }
 }
 .moveTo30 {
-    animation: moveTo30 1s forwards cubic-bezier(0, 0, 0.4, 1.23);
+    animation: moveTo30 1s .13s forwards cubic-bezier(0, 0, 0.5, 1.3);
 }
 @keyframes moveTo30 {
     to {
@@ -160,14 +163,14 @@ li {
         animation-timing-function: ease-in;
     }
     43% {
-        opacity: .7;
+        opacity: .5;
         transform: translateX(3vw);
         animation-timing-function: ease-in;
     }
     100% {
         opacity: 0;
-        transform: translateX(41vw);
-        animation-timing-function: ease-out;
+        transform: translateX(31vw);
+        animation-timing-function: cubic-bezier(0, 0, 0, 1);
     }
 }
 .oneJump {
@@ -232,7 +235,7 @@ li {
     }
 }
 .jump {
-    animation: jump 1.1s infinite;
+    animation: jump 1s infinite;
 }
 @keyframes jump {
     0% {
@@ -260,7 +263,7 @@ li {
     }
 }
 .shadowjump {
-    animation: shadow 1.1s infinite;
+    animation: shadow 1s infinite;
 }
 @keyframes shadow {
     0% {
@@ -302,7 +305,7 @@ li {
     }
 }
 div.bgfade {
-    animation: darkenBackground .1s forwards;
+    animation: darkenBackground 2s forwards;
 }
 @keyframes darkenBackground {
     to {

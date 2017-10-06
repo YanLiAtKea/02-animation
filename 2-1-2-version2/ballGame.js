@@ -1,4 +1,5 @@
-document.addEventListener('click', function(clickedElem){
+let simpleAnimation = document.querySelector('.buttonAreaSimple');
+simpleAnimation.addEventListener('click', function (clickedElem) {
     let clicked = clickedElem.target.id;
     let ball = document.querySelector('#ball');
     let ball2 = document.querySelector('#ball2');
@@ -9,22 +10,44 @@ document.addEventListener('click', function(clickedElem){
     let shadow = document.querySelector('.shadow');
     let wind = document.querySelector('.wind');
     let blood = document.querySelector('.blood');
-    //different animation
-    if ( clicked !== ""){
+    let allAudios = document.querySelectorAll('audio');
+    let windAudio = document.querySelector('audio#wind');
+    let ballAudio = document.querySelector('audio#bounce');
+
+    function ballBounceSound() {
+        ballAudio.play();
+        ballAudio.volume = .3;
+    };
+    // stop and reset all audio, so even click back this button, audio won't just resume
+    function stopOtherAudio() {
+        allAudios.forEach(function (playing) {
+            playing.pause();
+            playing.currentTime = 0;
+        });
+    };
+    if (clicked !== "") { //remove the possibility to stop animation when user click anywhere on the page
+        stopOtherAudio();
         let movement = clickedElem.target.id;
         ball.className = movement;
-        ball2Vertical.className = ("ball2Vertical" + movement);
-        ball2Horizontal.className = ("ball2Horizontal" + movement);
-        background.className = ("scene bg" + movement); shadow.className = ("shadow shadow" + movement);
-        wind.className = ("wind"); // need this to reset wind to original state, otherwise won't be fired when click moveFrom30 then something new then click moveFrom30 again
-        if (ball.className == "moveFrom30"){
-            let windAudio = document.querySelector('audio#wind');
+        background.className = ("scene");
+        shadow.className = ("shadow");
+        wind.className = ("wind");
+
+        if (movement == "moveFrom30") {
+            stopOtherAudio();
             windAudio.play();
-            windAudio.volume = .7;
-            let movement = clickedElem.target.id;
-            ball.className = movement;
             wind.className = ("wind wind" + movement);
-            shadow.className = ("shadow");
+        } else if (movement == "oneJump") {
+            stopOtherAudio();
+            shadow.className = ("shadow shadow" + movement);
+            setTimeout(ballBounceSound, 870);
+            ballBounceSound;
+            ballAudio.loop = false; // in case JUMP has set loop to true
+        } else if (movement == "jump") {
+            stopOtherAudio();
+            shadow.className = ("shadow shadow" + movement);
+        } else if (movement == "fade" || movement == "glow"){
+            background.className = ("scene bg" + movement);
         }
     }
-});
+})
