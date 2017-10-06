@@ -140,7 +140,7 @@ li {
         transform: translateX(30vw) rotate(367deg) scale(1);
     }
     100% {
-        transform: translateX(84.3vw) rotate(1240deg) scale(1);
+        transform: translateX(84.2vw) rotate(1240deg) scale(1);
     }
 }
 .windmoveFrom30 {

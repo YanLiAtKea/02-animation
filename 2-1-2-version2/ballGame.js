@@ -23,6 +23,7 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
         allAudios.forEach(function (playing) {
             playing.pause();
             playing.currentTime = 0;
+            playing.loop = false;
         });
     };
     if (clicked !== "") { //remove the possibility to stop animation when user click anywhere on the page
@@ -46,6 +47,9 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
         } else if (movement == "jump") {
             stopOtherAudio();
             shadow.className = ("shadow shadow" + movement);
+            setTimeout(ballBounceSound, 500);
+            ballAudio.playbackRate = 1.37;
+            ballAudio.loop = true;
         } else if (movement == "fade" || movement == "glow"){
             background.className = ("scene bg" + movement);
         }
