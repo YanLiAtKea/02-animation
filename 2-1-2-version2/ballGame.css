@@ -40,7 +40,7 @@ img#volumeOn, img#volumeOff {
     position: absolute;
     bottom: 17.5vh;
 }
-.scene img, img.stop {
+.scene img, img.stop { /*the first ball*/
     z-index: 1;
     width: 7vw;
     height: 7vw;
@@ -49,7 +49,30 @@ img#volumeOn, img#volumeOff {
     bottom: 17vh;
     margin-left: -7vw; /*out of scene */
 }
-.shadow, .blood, .wind {
+.ballWrapper, .fakeBallWrapper {
+    width: 7vw;
+    height: 7vw;
+    position: absolute;
+    left: -7vw;
+    bottom: 17vh;
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+.fakeBallWrapper { /* lazy solution, in mirror animation, show fakeball as original and mirror the real ball to other location*/
+    background-image: url("ball.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+img#ball2, img#ball3 {
+    width: 100%;
+    margin: 0;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.shadow, .blood, .wind, .directionControl {
     display: none; /* not all animation has these elements */
 }
 .shadowjump, .shadowoneJump {
@@ -121,18 +144,27 @@ h3 {
 }
 .note {
     height: 2em;
+    width: 83vw;
     overflow: hidden;
-    width: 100vw;
+    cursor: crosshair;
+}
+.note.clicked {
+    animation: toggleNoteArea .7s ease-in forwards;
+}
+@keyframes toggleNoteArea {
+    to {
+        height: auto;
+    }
 }
 .js img {
     width: 643px;
 }
-.unfinished > ul {
-    height: 7em;
-    overflow: scroll;
+ul {
+    list-style: circle;
 }
 li {
-    margin-bottom: .1em;
+    margin-bottom: .3em;
+    margin-left: 2em;
 }
 /* animations */
 .move {
@@ -384,26 +416,26 @@ div.bgglow {
     }
 }
 .mirror {
-    animation: mirror .15s ease-in forwards;
+    animation: mirror .10s ease-in forwards;
 }
 @keyframes mirror {
     0% {
         transform: translate(30vw, 0) scale(1, 1);
     }
     70% {
-        transform: translate(55vw, 0) scale(.5, 1);
+        transform: translate(53vw, 0) scale(.5, 1);
         opacity: .5;
     }
     80% {
-        transform: translate(60vw, 0) scale(0, 1);
+        transform: translate(57vw, 0) scale(0, 1);
         opacity: 0;
     }
     90% {
-        transform: translate(65vw, 0) scale(-.5, 1);
+        transform: translate(60vw, 0) scale(-.5, 1);
         opacity: .5;
     }
     100% {
-        transform: translate(70vw, 0) scale(-1, 1);
+        transform: translate(63vw, 0) scale(-1, 1);
         opacity: 1;
     }
 }

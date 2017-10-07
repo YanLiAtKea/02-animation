@@ -19,18 +19,19 @@
     </audio>
 
     <div class="scene">
-        <div class="ballWrapper ballHorizontal">
-            <div class="ballWrapper ballVertical">
+        <div class="fakeBallWrapper"></div>
+        <div class="ballVertical">
+            <div class="ballHorizontal">
                 <img id="ball" src="ball.png" alt="a ball">
             </div>
         </div>
-        <div class="ballWrapper ball2Horizontal">
-            <div class="ballWrapper ball2Vertical">
+        <div class="ballWrapper ball2Vertical">
+            <div class="ballWrapper ball2Horizontal">
                 <img id="ball2" src="ball2.png" alt="another ball">
             </div>
         </div>
-        <div class="ballWrapper ball3Horizontal">
-            <div class="ballWrapper ball3Vertical">
+        <div class="ballWrapper ball3Vertical">
+            <div class="ballWrapper ball3Horizontal">
                 <img id="ball3" src="ball3.png" alt="third ball">
             </div>
         </div>
@@ -39,11 +40,11 @@
         <div class="wind"></div>
         <div class="blood"></div>
         <div class="eyes"></div>
-        <div class="control volumeControl">
+        <div class="volumeControl">
             <img class="volume" id="volumeOn" src="volume-on.png" alt="volume on icon">
             <img class="volume" id="volumeOff" src="volume-off.jpg" alt="volume off icon">
         </div>
-        <div class="control directionControl">
+        <div class="directionControl">
             <div id="left">left</div>
             <div id="right">left</div>
             <div id="up">up</div>
@@ -91,11 +92,12 @@
         <div class="note unfinished">
             <h3>Issues</h3>
             <ul>
-                <li>!: use the "overwrite class approach, second click on the button won't trigger animation again but will trigger audio again. Check activeElement vs. just-clicked and restrict second click behavior can only solve half the problem, as user can also click and start an animation, click somewhere else and then click the same button again before the animation and sound are finished, so the sound will still be overlapping and the ball won't go back to original state. So restrict second click based on audio play status?</li>
-                <li>! sound on / off indication </li>
+                <li>? lots of resetting status in simple animations. solution? </li>
+                <li>! use the "overwrite class approach, second click on the button won't trigger animation again but will trigger audio again. Check activeElement vs. just-clicked and restrict second click behavior can only solve half the problem, as user can also click and start an animation, click somewhere else and then click the same button again before the animation and sound are finished, so the sound will still be overlapping and the ball won't go back to original state. So restrict second click based on audio play status?</li>
+                <li>?! sound on / off indication. now set to "show icon only when there is audio in the selected animation, to avoid the possible confusion that seeing a icon but hearing no sound. Not ideal. Toggle icon based on if there's a audio playing is not ideal either.</li>
                 <li>? when ball hits ground, set scale origin point so bottom flatter than top?</li>
                 <li>! glow works in Chrome/Opera/Brave.</li>
-                <li>? click other button can't pause and reset single bounce sound</li>
+                <li>?! click other button can't pause and reset single bounce sound</li>
             </ul>
         </div>
     </div>
