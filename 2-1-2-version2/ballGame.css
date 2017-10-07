@@ -323,7 +323,7 @@ li {
         animation-timing-function: ease-out;
     }
     55% {
-        transform: translate(30vw, 1.3vh) scale(1.5, .6);
+        transform: translate(30vw, 1.3vh) scale(1.4, .7);
         animation-timing-function: ease-in;
     }
     60% {
@@ -426,14 +426,14 @@ div.bgglow {
 
 }
 .shake {
-    animation: shake .1s linear 4 forwards;
+    animation: shake .08s ease-in 5 forwards;
 }
 @keyframes shake {
-    from {
+    0%, 100% {
         transform: translate(30vw, 0);
     }
-    to {
-        transform: translate(30.3vw, .3vw);
+    50% {
+        transform: translate(30.4vw, 0);
     }
 }
 .mirror {

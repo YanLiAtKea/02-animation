@@ -17,6 +17,8 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
     let chuAudio = document.querySelector('audio#chu');
     let fallAudio = document.querySelector('audio#fall');
     let windAudio = document.querySelector('audio#wind');
+    let shakeAudio = document.querySelector('audio#shake');
+    let nightAudio = document.querySelector('audio#night');
     let ballAudio = document.querySelector('audio#bounce');
     let volumeOn = document.querySelector('#volumeOn');
     let volumeOff = document.querySelector('#volumeOff');
@@ -29,7 +31,6 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
     function toggleVolume() {
         volumeOn.style.display = "block";
         volumeOn.addEventListener('click', toggleVolumeOff);
-
         function toggleVolumeOff() {
             volumeOn.style.display = "none";
             volumeOff.style.display = "block";
@@ -38,7 +39,6 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
             });
         }
         volumeOff.addEventListener('click', toggleVolumeOn);
-
         function toggleVolumeOn() {
             volumeOn.style.display = "block";
             volumeOff.style.display = "none";
@@ -60,11 +60,16 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
         ballAudio.play();
         ballAudio.volume = .3;
     };
-    // ball fall
+    // ball fall audio
     function ballFall() {
         fallAudio.play();
         fallAudio.volume = .7;
         fallAudio.playbackRate = 1.07;
+    }
+    // night audio
+    function nightBackground(){
+        nightAudio.play();
+        nightAudio.volume = .3;
     }
     // *********** animations ***********//
     if (clicked !== "") { //remove the possibility to stop animation when user click anywhere on the page, like sound control, position control etc
@@ -93,13 +98,23 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
                 setTimeout(ballBounceSound, 500);
                 ballAudio.playbackRate = 1.37;
                 ballAudio.loop = true;
-            } else if (movement == "fade" || movement == "glow") {
+            } else if (movement == "fade") {
+                resetFakeBall();
+                toggleVolume();
+                setTimeout(nightBackground, 500);
+                background.className = ("scene bg" + movement);
+            } else if (movement == "glow"){
                 resetFakeBall();
                 background.className = ("scene bg" + movement);
             } else if (movement == "mirror") {
+                toggleVolume();
                 chuAudio.play();
                 chuAudio.playbackRate = 1.05;
                 fakeBallPositionH.style = "left: 23vw";
+            } else if (movement == "shake") {
+                toggleVolume();
+                shakeAudio.play();
+                shakeAudio.playbackRate = 3.7;
             }
         } else if (movement == "fallDown"){ //single this out, cuz need to have tha ball on stage, then fire gun, then wait, then start original animation
             ball.className = "onStage";
