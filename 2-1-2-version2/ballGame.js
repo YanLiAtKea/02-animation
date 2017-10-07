@@ -13,14 +13,15 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
     let background = document.querySelector('.scene');
     let shadow = document.querySelector('.shadow');
     let wind = document.querySelector('.wind');
-    let eyes1Position = document.querySelector('.eyes1');
-    let eyes2Position = document.querySelector('.eyes2');
+    let eyes1Position = document.querySelector('#eyes1');
+    let eyes2Position = document.querySelector('#eyes2');
     let allAudios = document.querySelectorAll('audio');
     let chuAudio = document.querySelector('audio#chu');
     let fallAudio = document.querySelector('audio#fall');
     let windAudio = document.querySelector('audio#wind');
     let shakeAudio = document.querySelector('audio#shake');
     let nightAudio = document.querySelector('audio#night');
+    let night2Audio = document.querySelector('audio#night2');
     let ballAudio = document.querySelector('audio#bounce');
     let volumeOn = document.querySelector('#volumeOn');
     let volumeOff = document.querySelector('#volumeOff');
@@ -29,7 +30,7 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
     function resetFakeBall() {
         fakeBallPositionH.style = "left: -7vw";
     }
-    // show/hide volume icon and toggle, call only when animation has sound
+    // show/hide volume icon and toggle, call this only when selected animation has sound
     function toggleVolume() {
         volumeOn.style.display = "block";
         volumeOn.addEventListener('click', toggleVolumeOff);
@@ -55,7 +56,7 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
             playing.pause();
             playing.currentTime = 0;
             playing.loop = false;
-        });
+        })
     };
     // ball bounce sound
     function ballBounceSound() {
@@ -81,6 +82,8 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
         background.className = ("scene");
         shadow.className = ("shadow");
         wind.className = ("wind");
+        eyes1Position.className = ("");
+        eyes2Position.className = ("");
         if (movement !== "fallDown") {
             ball.className = movement;
             ballGotShot.className = "";
@@ -102,11 +105,26 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
                 ballAudio.playbackRate = 1.37;
                 ballAudio.loop = true;
             } else if (movement == "fade") {
+                stopOtherAudio();
                 toggleVolume();
                 setTimeout(nightBackground, 2000);
                 background.className = ("scene bg" + movement);
             } else if (movement == "glow"){
+                stopOtherAudio();
+                ball.className = (""); //reset ball
+                night2Audio.play();
                 background.className = ("scene bg" + movement);
+                eyes1Position.className = (movement);
+                eyes2Position.className = (movement);
+                eyes2Position.addEventListener('animationend', eyesMoveClose);
+                function eyesMoveClose(){
+                    chuAudio.play();
+                    chuAudio.playbackRate = 1.5;
+                    chuAudio.volume = .3;
+                    eyes1Position.className = ("eyes1MoveClose");
+                    eyes2Position.className = ("eyes2MoveClose");
+                    ball.className = (movement);
+                }
             } else if (movement == "mirror") {
                 toggleVolume();
                 chuAudio.play();
