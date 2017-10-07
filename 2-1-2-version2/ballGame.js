@@ -1,18 +1,20 @@
+// expand or hide note area
 document.querySelector('.unfinished').addEventListener('click', toggleNoteArea);
-
 function toggleNoteArea() {
-    document.querySelector('.unfinished').classList.toggle('clicked');
+document.querySelector('.unfinished').classList.toggle('clicked');
 }
-//use "overwrite class" approach to switch between simple animations, no add/remove class or toggle, no need to refresh page. other approaches see below.
+// ******* use "overwrite class" approach to switch between simple animations, no add/remove class or toggle, no need to refresh page. other approaches see below. ******* //
 let simpleAnimation = document.querySelector('.buttonAreaSimple');
 simpleAnimation.addEventListener('click', function (clickedElem) {
     let clicked = clickedElem.target.id;
     let ball = document.querySelector('#ball');
+    let ballGotShot = document.querySelector('#ballGotShot');
     let fakeBallPositionH = document.querySelector('.fakeBallWrapper');
     let background = document.querySelector('.scene');
     let shadow = document.querySelector('.shadow');
     let wind = document.querySelector('.wind');
-    let blood = document.querySelector('.blood');
+    let eyes1 = document.querySelector('.eye1');
+    let eyes2 = document.querySelector('.eye2');
     let allAudios = document.querySelectorAll('audio');
     let chuAudio = document.querySelector('audio#chu');
     let fallAudio = document.querySelector('audio#fall');
@@ -22,7 +24,7 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
     let ballAudio = document.querySelector('audio#bounce');
     let volumeOn = document.querySelector('#volumeOn');
     let volumeOff = document.querySelector('#volumeOff');
-    // *********** some reusable functions *********** //
+// *********** some reusable functions *********** //
     // reset fakeBall
     function resetFakeBall() {
         fakeBallPositionH.style = "left: -7vw";
@@ -71,7 +73,7 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
         nightAudio.play();
         nightAudio.volume = .3;
     }
-    // *********** animations ***********//
+// *********** animations ***********//
     if (clicked !== "") { //remove the possibility to stop animation when user click anywhere on the page, like sound control, position control etc
         resetFakeBall();
         stopOtherAudio();
@@ -81,6 +83,7 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
         wind.className = ("wind");
         if (movement !== "fallDown") {
             ball.className = movement;
+            ballGotShot.className = "";
             if (movement == "moveTo30") {
                 toggleVolume();
                 chuAudio.play();
@@ -123,8 +126,9 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
             document.querySelector('#shot').volume = .2;
             document.querySelector('#shot').addEventListener('ended', startAnimation);
             function startAnimation() {
-                ball.className = movement;
-                setTimeout(ballFall, 200); // if have audio.play()inside the setTimeout, no effect. why
+                ball.className = "";
+                ballGotShot.className = "ballGotShot"+movement;
+                setTimeout(ballFall, 130);
             }
         }
     }

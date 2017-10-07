@@ -61,7 +61,7 @@ img#volumeOn, img#volumeOff {
     position: absolute;
     bottom: 17.5vh;
 }
-.scene img, img.stop { /*the first ball*/
+.scene img, img.stop, #ballShot { /*the first ball*/
     z-index: 1;
     width: 7vw;
     height: 7vw;
@@ -93,8 +93,27 @@ img#ball2, img#ball3 {
     bottom: 0;
     left: 0;
 }
-.shadow, .blood, .wind, .directionControl {
+.shadow, .eyes, .wind, .directionControl {
     display: none; /* not all animation has these elements */
+}
+.eyes1, .eyes2 {
+    position: absolute;
+    padding: 1px;
+    width: 7vw;
+    height: 3vw;
+}
+.eye {
+    width: 2.3vw;
+    height: 2vw;
+    border-radius: 60%;
+    background: gold;
+    position: absolute;
+}
+.eye1 {
+    left: 0;
+}
+.eye2 {
+    right: 0;
 }
 .shadowjump, .shadowoneJump {
     display: inherit;
@@ -109,6 +128,7 @@ img#ball2, img#ball3 {
 }
 #stop {
     z-index: 1;
+    cursor: crosshair;
     width: 13vw;
     height: 13vw;
     border-radius: 50%;
@@ -364,7 +384,7 @@ li {
     }
 }
 .fade {
-    animation: fade 3s ease-out forwards;
+    animation: fade 4s ease-out forwards;
 }
 @keyframes fade {
     0% {
@@ -377,7 +397,7 @@ li {
     }
 }
 div.bgfade {
-    animation: darkenBackground 2s ease-out forwards;
+    animation: darkenBackground 3s ease-out forwards;
 }
 @keyframes darkenBackground {
     to {
@@ -402,28 +422,23 @@ div.bgfade {
 div.bgglow {
     animation: darkenBackground 1s forwards;
 }
-#ball.onStage {
+
+#ball.onStage { /* need this to show a ball before gunshot */
     margin-left: 23vw;
 }
-.fallDown {
-    animation: fallDawn .8s cubic-bezier(1, 0, .93, .73) forwards;
+.ballGotShotfallDown {
+    animation: fallDawn .67s cubic-bezier(1, 0, .93, .83) forwards;
 }
 @keyframes fallDawn {
-    0%, 30% {
+    0%, 20% {
         transform: translate(30vw, 0) rotateY(0);
     }
-    15% {
+    10% {
         transform: translate(30vw, 0) rotateY(17deg);
     }
     100% {
-        transform: translate(30vw, 0) rotateY(-34deg) rotateX(89deg);
+        transform: translate(30vw, 0) rotateY(-31deg) rotateX(88deg);
         transform-origin: bottom;}
-}
-.bloodfallDown {
-    animation: blood .5s 1s forwards;
-}
-@keyframes blood {
-
 }
 .shake {
     animation: shake .08s ease-in 5 forwards;

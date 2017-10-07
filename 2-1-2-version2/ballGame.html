@@ -9,7 +9,7 @@
 
 <body>
     <audio id="chu">
-        <source src="audio/chu.mp3" type="audio/mpeg">
+        <source src="audio/chu-fade-in.mp3" type="audio/mpeg">
     </audio>
     <audio id="wind">
         <source src="audio/wind.mp3" type="audio/mpeg">
@@ -35,6 +35,7 @@
         <div class="ballVertical">
             <div class="ballHorizontal">
                 <img id="ball" src="image/ball.png" alt="a ball">
+                <img id="ballGotShot" src="image/ballGotShot.png" alt="ball got shot">
             </div>
         </div>
         <div class="ballWrapper ball2Vertical">
@@ -50,8 +51,14 @@
         <div class="horizon"></div>
         <div class="shadow"></div>
         <div class="wind"></div>
-        <div class="blood"></div>
-        <div class="eyes"></div>
+        <div class="eyes eyes1">
+            <div class="eye eye1"></div>
+            <div class="eye eye2"></div>
+        </div>
+        <div class="eyes eyes2">
+            <div class="eye eye1"></div>
+            <div class="eye eye2"></div>
+        </div>
         <div class="volumeControl">
             <img class="volume" id="volumeOn" src="image/volume-on.png" alt="volume on icon">
             <img class="volume" id="volumeOff" src="image/volume-off.jpg" alt="volume off icon">
@@ -67,7 +74,7 @@
     </div>
     <div class="buttonArea buttonAreaSimple">
         <div id="stop">STOP<br>&amp;<br>RESTART</div>
-        <p>Refined for assignment</p>
+        <p>Refined: add audio &amp; more effects</p>
         <button id="move" class="button">calm ball rolling across</button>
         <button id="moveTo30" class="button">fast ball rush on stage</button>
         <button id="moveFrom30" class="button">light ball blown away</button>
@@ -111,7 +118,7 @@
                 <li>? when ball hits ground, set scale origin point so bottom flatter than top?</li>
                 <li>! glow works in Chrome/Opera/Brave.</li>
                 <li>???! click other button can't pause and reset single bounce sound. But the function works well with all other audio..</li>
-                <li>?? setTimeout -- setTimeout(ballFall, 100) works, but if don't define ballFall first, just have fallAudio.play()inside the setTimeout, then no timeout effect. why? ballFall founction is set to fallAudio.play()</li>
+                <li></li>
             </ul>
         </div>
     </div>
