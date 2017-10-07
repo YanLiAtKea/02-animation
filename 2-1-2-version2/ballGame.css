@@ -225,14 +225,14 @@ li {
     }
 }
 .moveFrom30 {
-    animation: moveFrom30 4s forwards cubic-bezier(0.65, 0, 0.68, 1.27);
+    animation: moveFrom30 4s forwards cubic-bezier(0.65, 0, 0.41, 1.41);
 }
 @keyframes moveFrom30 {
     0% {
         transform: translateX(30vw) rotate(367deg) scale(1);
     }
     100% {
-        transform: translateX(84.2vw) rotate(1240deg) scale(1);
+        transform: translateX(82.5vw) rotate(1240deg) scale(1);
     }
 }
 .windmoveFrom30 {
