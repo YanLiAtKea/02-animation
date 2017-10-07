@@ -7,6 +7,27 @@ body {
     background: #222;
     position: relative;
 }
+footer {
+    margin-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 6vw;
+    font-family: serif;
+    font-weight: bold;
+}
+address {
+    display: inline;
+    margin-left: 1em;
+}
+address img {
+    height: 1em;
+    margin-left: -.5em;
+    width: auto;
+}
+a, a:visited{
+    color: #111;
+    text-decoration: none;
+    cursor: crosshair;
+}
 .scene {
     position: relative;
     height: 60vh;
