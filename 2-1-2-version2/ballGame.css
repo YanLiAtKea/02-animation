@@ -197,7 +197,7 @@ li {
     }
 }
 .moveTo30 {
-    animation: moveTo30 .28s .13s forwards cubic-bezier(0, 0, 0.5, 1.3);
+    animation: moveTo30 .23s .13s forwards cubic-bezier(0, 0, 0.5, 1.3);
 }
 @keyframes moveTo30 {
     to {
@@ -377,7 +377,7 @@ li {
     }
 }
 div.bgfade {
-    animation: darkenBackground 2s forwards;
+    animation: darkenBackground 2s ease-out forwards;
 }
 @keyframes darkenBackground {
     to {
@@ -402,21 +402,21 @@ div.bgfade {
 div.bgglow {
     animation: darkenBackground 1s forwards;
 }
+#ball.onStage {
+    margin-left: 23vw;
+}
 .fallDown {
-    animation: fallDawn 1s cubic-bezier(1, 0, 1, 1) forwards;
+    animation: fallDawn .8s cubic-bezier(1, 0, .93, .73) forwards;
 }
 @keyframes fallDawn {
-    0%, 20%, 40% {
+    0%, 30% {
         transform: translate(30vw, 0) rotateY(0);
     }
-    10% {
-        transform: translate(30vw, 0) rotateY(30deg);
-    }
-    30%, 50% {
-        transform: translate(30vw, 0) rotateY(-30deg);
+    15% {
+        transform: translate(30vw, 0) rotateY(17deg);
     }
     100% {
-        transform: translate(30vw, 0) rotateY(-30deg) rotateX(90deg);
+        transform: translate(30vw, 0) rotateY(-34deg) rotateX(89deg);
         transform-origin: bottom;}
 }
 .bloodfallDown {

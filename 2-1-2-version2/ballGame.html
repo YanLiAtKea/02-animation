@@ -17,6 +17,12 @@
     <audio id="bounce">
         <source src="audio/bounce.wav" type="audio/mpeg">
     </audio>
+    <audio id="shot">
+        <source src="audio/arrow-shot.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="fall">
+        <source src="audio/fall.mp3" type="audio/mpeg">
+    </audio>
 
     <div class="scene">
         <div class="fakeBallWrapper"></div>
@@ -99,6 +105,7 @@
                 <li>? when ball hits ground, set scale origin point so bottom flatter than top?</li>
                 <li>! glow works in Chrome/Opera/Brave.</li>
                 <li>???! click other button can't pause and reset single bounce sound. But the function works well with all other audio..</li>
+                <li>?? setTimeout -- setTimeout(ballFall, 100) works, but if don't define ballFall first, just have fallAudio.play()inside the setTimeout, then no timeout effect. why? ballFall founction is set to fallAudio.play()</li>
             </ul>
         </div>
     </div>
