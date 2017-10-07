@@ -93,12 +93,12 @@
             <h3>Issues <sub>⇣</sub></h3>
             <ul>
                 <li>!!! audio lag in safari.</li>
-                <li>? lots of resetting status in simple animations. solution? </li>
-                <li>! use the "overwrite class approach, second click on the button won't trigger animation again but will trigger audio again. Check activeElement vs. just-clicked and restrict second click behavior can only solve half the problem, as user can also click and start an animation, click somewhere else and then click the same button again before the animation and sound are finished, so the sound will still be overlapping and the ball won't go back to original state. So restrict second click based on audio play status?</li>
-                <li>?! sound on / off indication. now set to "show icon only when there is audio in the selected animation, to avoid the possible confusion that seeing a icon but hearing no sound. Not ideal. Toggle icon based on if there's a audio playing is not ideal either.</li>
+                <li><del>? lots of resetting status in simple animations. solution? </del></li>
+                <li>!! for the first 10 simpla animations, use the "overwrite class approach -- second click on the button won't trigger animation again since there's no change in class, but a second click will trigger audio again, so image and audio don't sync as they should. Check activeElement vs. just-clicked and restrict second click behavior can only solve half the problem, as user can also click and start an animation, click somewhere else and then click the same button again before the animation and sound are finished, so the sound will still be overlapping and the ball won't go back to original state. So restrict second click based on audio play status?</li>
+                <li>?! sound on / off indication. now set to "show icon" only when there is audio in the selected animation, to avoid the possible confusion that seeing a volume-on icon but hearing no sound. Not ideal. Tried to toggle icon based on if there's a audio playing, not ideal either, but can't remember exactly why....</li>
                 <li>? when ball hits ground, set scale origin point so bottom flatter than top?</li>
                 <li>! glow works in Chrome/Opera/Brave.</li>
-                <li>?! click other button can't pause and reset single bounce sound</li>
+                <li>???! click other button can't pause and reset single bounce sound. But the function works well with all other audio..</li>
             </ul>
         </div>
     </div>
