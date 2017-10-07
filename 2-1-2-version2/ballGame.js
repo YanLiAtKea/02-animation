@@ -118,9 +118,6 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
                 eyes2Position.className = (movement);
                 eyes2Position.addEventListener('animationend', eyesMoveClose);
                 function eyesMoveClose(){
-                    chuAudio.play();
-                    chuAudio.playbackRate = 1.5;
-                    chuAudio.volume = .3;
                     eyes1Position.className = ("eyes1MoveClose");
                     eyes2Position.className = ("eyes2MoveClose");
                     ball.className = (movement);
