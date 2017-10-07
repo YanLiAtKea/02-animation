@@ -232,7 +232,7 @@ li {
         transform: translateX(30vw) rotate(367deg) scale(1);
     }
     100% {
-        transform: translateX(82.5vw) rotate(1240deg) scale(1);
+        transform: translateX(82.5vw) rotate(1260deg) scale(1);
     }
 }
 .windmoveFrom30 {
@@ -384,7 +384,7 @@ li {
     }
 }
 .fade {
-    animation: fade 4s ease-out forwards;
+    animation: fade 4.5s ease-out forwards;
 }
 @keyframes fade {
     0% {
@@ -397,7 +397,7 @@ li {
     }
 }
 div.bgfade {
-    animation: darkenBackground 3s ease-out forwards;
+    animation: darkenBackground 3s cubic-bezier(0, 0, 0.17, 0.97) forwards;
 }
 @keyframes darkenBackground {
     to {

@@ -104,7 +104,7 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
             } else if (movement == "fade") {
                 resetFakeBall();
                 toggleVolume();
-                setTimeout(nightBackground, 500);
+                setTimeout(nightBackground, 2000);
                 background.className = ("scene bg" + movement);
             } else if (movement == "glow"){
                 resetFakeBall();
