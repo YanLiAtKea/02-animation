@@ -13,8 +13,8 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
     let background = document.querySelector('.scene');
     let shadow = document.querySelector('.shadow');
     let wind = document.querySelector('.wind');
-    let eyes1 = document.querySelector('.eye1');
-    let eyes2 = document.querySelector('.eye2');
+    let eyes1Position = document.querySelector('.eyes1');
+    let eyes2Position = document.querySelector('.eyes2');
     let allAudios = document.querySelectorAll('audio');
     let chuAudio = document.querySelector('audio#chu');
     let fallAudio = document.querySelector('audio#fall');
@@ -102,12 +102,10 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
                 ballAudio.playbackRate = 1.37;
                 ballAudio.loop = true;
             } else if (movement == "fade") {
-                resetFakeBall();
                 toggleVolume();
                 setTimeout(nightBackground, 2000);
                 background.className = ("scene bg" + movement);
             } else if (movement == "glow"){
-                resetFakeBall();
                 background.className = ("scene bg" + movement);
             } else if (movement == "mirror") {
                 toggleVolume();
