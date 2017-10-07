@@ -9,30 +9,30 @@
 
 <body>
     <audio id="chu">
-        <source src="chu.mp3" type="audio/mpeg">
+        <source src="audio/chu.mp3" type="audio/mpeg">
     </audio>
     <audio id="wind">
-        <source src="wind.mp3" type="audio/mpeg">
+        <source src="audio/wind.mp3" type="audio/mpeg">
     </audio>
     <audio id="bounce">
-        <source src="bounce.wav" type="audio/mpeg">
+        <source src="audio/bounce.wav" type="audio/mpeg">
     </audio>
 
     <div class="scene">
         <div class="fakeBallWrapper"></div>
         <div class="ballVertical">
             <div class="ballHorizontal">
-                <img id="ball" src="ball.png" alt="a ball">
+                <img id="ball" src="image/ball.png" alt="a ball">
             </div>
         </div>
         <div class="ballWrapper ball2Vertical">
             <div class="ballWrapper ball2Horizontal">
-                <img id="ball2" src="ball2.png" alt="another ball">
+                <img id="ball2" src="image/ball2.png" alt="another ball">
             </div>
         </div>
         <div class="ballWrapper ball3Vertical">
             <div class="ballWrapper ball3Horizontal">
-                <img id="ball3" src="ball3.png" alt="third ball">
+                <img id="ball3" src="image/ball3.png" alt="third ball">
             </div>
         </div>
         <div class="horizon"></div>
@@ -41,8 +41,8 @@
         <div class="blood"></div>
         <div class="eyes"></div>
         <div class="volumeControl">
-            <img class="volume" id="volumeOn" src="volume-on.png" alt="volume on icon">
-            <img class="volume" id="volumeOff" src="volume-off.jpg" alt="volume off icon">
+            <img class="volume" id="volumeOn" src="image/volume-on.png" alt="volume on icon">
+            <img class="volume" id="volumeOff" src="image/volume-off.jpg" alt="volume off icon">
         </div>
         <div class="directionControl">
             <div id="left">left</div>
@@ -84,15 +84,15 @@
         <h2>Code &amp; Issues ..</h2>
         <div class="note js">
             <h3>JS</h3>
-            <img src="js.png" alt="JS snippet">
+            <img src="image/js.png" alt="JS snippet">
         </div>
         <div class="note css">
             <h3>CSS</h3>
         </div>
         <div class="note unfinished">
-            <h3>Issues</h3>
+            <h3>Issues <sub>⇣</sub></h3>
             <ul>
-                <li>!!! sound delay in safari.</li>
+                <li>!!! audio lag in safari.</li>
                 <li>? lots of resetting status in simple animations. solution? </li>
                 <li>! use the "overwrite class approach, second click on the button won't trigger animation again but will trigger audio again. Check activeElement vs. just-clicked and restrict second click behavior can only solve half the problem, as user can also click and start an animation, click somewhere else and then click the same button again before the animation and sound are finished, so the sound will still be overlapping and the ball won't go back to original state. So restrict second click based on audio play status?</li>
                 <li>?! sound on / off indication. now set to "show icon only when there is audio in the selected animation, to avoid the possible confusion that seeing a icon but hearing no sound. Not ideal. Toggle icon based on if there's a audio playing is not ideal either.</li>
@@ -102,7 +102,7 @@
             </ul>
         </div>
     </div>
-    <footer>&copy;李延 Yan Li&#64;KEA. All Rights Reserved. Send me a<address><a href="mailto:liyan.xiaobaoxixi@gmail.com?subject=ballGame"><img src="mail.png">&nbsp;。。</a></address></footer>
+    <footer>&copy;李延 Yan Li&#64;kea. All Rights Reserved. Send me a<address><a href="mailto:liyan.xiaobaoxixi@gmail.com?subject=ballGame"><img src="image/mail.png" alt="mail icon"></a></address></footer>
     <script src="ballGame.js"></script>
 </body>
 </html>

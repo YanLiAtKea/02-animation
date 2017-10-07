@@ -68,27 +68,19 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
         shadow.className = ("shadow");
         wind.className = ("wind");
         if (movement == "moveTo30") {
-            resetFakeBall();
             toggleVolume();
-            stopOtherAudio();
             chuAudio.play();
         } else if (movement == "moveFrom30") {
-            resetFakeBall();
             toggleVolume();
-            stopOtherAudio();
             windAudio.play();
             wind.className = ("wind wind" + movement);
         } else if (movement == "oneJump") {
-            resetFakeBall();
             toggleVolume();
-            stopOtherAudio();
             shadow.className = ("shadow shadow" + movement);
             setTimeout(ballBounceSound, 870);
             ballBounceSound;
         } else if (movement == "jump") {
-            resetFakeBall();
             toggleVolume();
-            stopOtherAudio();
             shadow.className = ("shadow shadow" + movement);
             setTimeout(ballBounceSound, 500);
             ballAudio.playbackRate = 1.37;
@@ -98,7 +90,10 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
             background.className = ("scene bg" + movement);
         } else if (movement == "mirror") {
             chuAudio.play();
+            chuAudio.playbackRate = 1.05;
             fakeBallPositionH.style = "left: 23vw";
+        } else if (movement== "fallDown") {
+
         }
     }
 })
