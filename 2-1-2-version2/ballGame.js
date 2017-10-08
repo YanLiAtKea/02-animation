@@ -110,6 +110,7 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
                 setTimeout(nightBackground, 2000);
                 background.className = ("scene bg" + movement);
             } else if (movement == "glow"){
+                toggleVolume();
                 stopOtherAudio();
                 ball.className = (""); //reset ball
                 night2Audio.play();
