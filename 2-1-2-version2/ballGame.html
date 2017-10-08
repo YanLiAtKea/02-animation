@@ -121,6 +121,7 @@
             <h3>Issues <sub>⇣</sub></h3>
             <ul>
                 <li><del>!!!!! why snorring effect keeps firing right after all animations, after it's played for the first time. Bouncing ball also has infinite animation and audio loop but doesn't behave this way!</del> <br>Solution: add if inside function, so that snorring only runs when ball is in the right state, ie with the glow class, don't run snorring with any other class</li>
+                <li>*** check function scope</li>
                 <li>??? different audio lag different browsers, especially in Safari. No snorring sound in Safari. No snorring motion in Firefox.</li>
                 <li><del>? lots of resetting status in simple animations. solution? </del></li>
                 <li>!! for the first 10 simpla animations, use the "overwrite class approach -- second click on the button won't trigger animation again since there's no change in class, but a second click will trigger audio again, so image and audio don't sync as they should. Check activeElement vs. the just-clicked button and restrict second click behavior can only solve half the problem, as user can also click and start an animation, click somewhere else and then click the same button again before the animation and sound are finished, so the sound will still be overlapping and the ball won't go back to original state. So restrict second click based on audio play status?</li>

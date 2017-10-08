@@ -110,14 +110,16 @@ img#ball2, img#ball3 {
 #eyes1 {
     top: 7vh;
     left: 53vw;
-    width: 6vw;
+    width: 7vw;
     height: 1.5vw;
+    padding: 0 .5vw
 }
 #eyes2 {
     top: 13vh;
     left: 71vw;
-    width: 8vw;
+    width: 9vw;
     height: 2.1vw;
+    padding: 0 .5vw
 }
 .eye {
     width: 30%;
