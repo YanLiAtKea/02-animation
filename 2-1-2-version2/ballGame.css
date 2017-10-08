@@ -196,7 +196,7 @@ h3 {
     height: 2em;
     width: 83vw;
     overflow: hidden;
-    cursor: crosshair;
+    cursor: s-resize;
 }
 .note.clicked {
     animation: toggleNoteArea .7s ease-in forwards;

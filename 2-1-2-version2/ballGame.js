@@ -79,12 +79,6 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
         snorringAudio.play();
         snorringAudio.loop = true;
     }
-    function stopSnorring(){
-        snorringAudio.currentTime = 0;
-        snorringAudio.pause();
-        snorringAudio.loop = false;
-        ball.classList.remove('snorring');
-    }
     // reset scene
     function resetScene(){
         resetFakeBall();
@@ -95,12 +89,10 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
         eyes2Position.className = ("");
         toggleVolume();
         stopOtherAudio();
-        stopSnorring();
-        console.log('reset scene');
     }
 // ******* start animation, start with reset scene ******* //
-    if (clicked !== "fallDown"){
     resetScene();
+    if (clicked !== "fallDown"){
         ball.className = clicked;
         ballGotShot.className = "";
         if (clicked == "moveTo30") {
@@ -113,7 +105,7 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
             setTimeout(ballBounceSound, 870);
         } else if (clicked == "jump") {
             shadow.className = ("shadow shadow" + clicked);
-            setTimeout(ballBounceSound, 490);
+            setTimeout(ballBounceSound, 470);
             ballAudio.playbackRate = 1.37;
             ballAudio.loop = true;
         } else if (clicked == "fade") {
@@ -135,20 +127,25 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
                 ball.addEventListener('animationend', snorring);
             }
             function snorring(){
-                startSnorring();
-                ball.className = ("snorring");
+                if (ball.className == "glow"){
+                    startSnorring();
+                    ball.className = ("snorring");
+                    } else {
+                        return;
+                    }
+                }
 //                eyes1Position.className = ("eyes1BackOff");
 //                eyes2Position.className = ("eyes2BackOff");
-            }
         } else if (clicked == "mirror") {
             chuAudio.play();
             chuAudio.playbackRate = 1.05;
             fakeBallPositionH.style = "left: 23vw";
         } else if (clicked == "shake") {
             shakeAudio.play();
+            shakeAudio.volume = .3;
             shakeAudio.playbackRate = 3.7;
         }
-    } else if (clicked == "fallDown"){ //single this out, cuz more events, need to have a good ball on stage, then fire gun, then wait, then switch to a broken ball and start original animation
+    } else if (clicked == "fallDown"){ //single this cuz more events, need to have a good ball on stage, then fire gun, then wait, then switch to a broken ball and start original animation
         ball.className = "onStage";
         document.querySelector('#shot').play();
         document.querySelector('#shot').volume = .2;
@@ -156,7 +153,18 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
         function startAnimation() {
             ball.className = "";
             ballGotShot.className = "ballGotShot"+clicked;
-            setTimeout(ballFall, 130);
+            setTimeout(ballFall, 110);
         }
     }
 })
+/*
+let moreAnimation = document.querySelector('.buttonAreaMore');
+moreAnimation.addEventListener('click', function (clickedElem) {
+    let clicked = clickedElem.target.id;
+    let ball = document.querySelector('#ball');
+    let background = document.querySelector('.scene');
+    if(clicked == "sneak") {
+        ball.className = clicked;
+        background.className = ("scene bg"+clicked);
+    }
+})*/
