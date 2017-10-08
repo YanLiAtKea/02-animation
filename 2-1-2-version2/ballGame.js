@@ -20,6 +20,7 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
     let fallAudio = document.querySelector('audio#fall');
     let windAudio = document.querySelector('audio#wind');
     let shakeAudio = document.querySelector('audio#shake');
+    let snorringAudio = document.querySelector('audio#snorring');
     let nightAudio = document.querySelector('audio#night');
     let night2Audio = document.querySelector('audio#night2');
     let ballAudio = document.querySelector('audio#bounce');
@@ -39,7 +40,7 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
             volumeOff.style.display = "block";
             allAudios.forEach(function (playing) {
                 playing.muted = true;
-            });
+            })
         }
         volumeOff.addEventListener('click', toggleVolumeOn);
         function toggleVolumeOn() {
@@ -47,7 +48,7 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
             volumeOff.style.display = "none";
             allAudios.forEach(function (playing) {
                 playing.muted = false;
-            });
+            })
         }
     }
     // stop all audio, so won't disturb the new one. and reset audio so when click back this button, audio won't just resume.
@@ -119,6 +120,14 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
                 eyes1Position.className = ("eyes1MoveClose");
                 eyes2Position.className = ("eyes2MoveClose");
                 ball.className = (clicked);
+                ball.addEventListener('animationend', snorring);
+            }
+            function snorring(){
+                ball.className = ("snorring");
+                snorringAudio.play();
+                snorringAudio.loop = true;
+//                eyes1Position.className = ("eyes1BackOff");
+//                eyes2Position.className = ("eyes2BackOff");
             }
         } else if (clicked == "mirror") {
             chuAudio.play();
@@ -128,7 +137,7 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
             shakeAudio.play();
             shakeAudio.playbackRate = 3.7;
         }
-    } else if (clicked == "fallDown"){ //single this out, cuz need to have tha good ball on stage, then fire gun, then wait, then switch to a broken ball andstart original animation
+    } else if (clicked == "fallDown"){ //single this out, cuz more events, need to have a good ball on stage, then fire gun, then wait, then switch to a broken ball and start original animation
         ball.className = "onStage";
         document.querySelector('#shot').play();
         document.querySelector('#shot').volume = .2;

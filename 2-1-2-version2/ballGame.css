@@ -241,7 +241,7 @@ li {
         transform: translateX(30vw) rotate(367deg) scale(1);
     }
     100% {
-        transform: translateX(82.5vw) rotate(1260deg) scale(1);
+        transform: translateX(82.3vw) rotate(1260deg) scale(1);
     }
 }
 .windmoveFrom30 {
@@ -416,21 +416,21 @@ div.bgfade {
 @keyframes glow {
     0% {
         transform: translate(30vw, 0);
-        opacity: .1;
+        opacity: .05;
     }
     30% {
         transform: translate(30vw, 0);
-        opacity: .2;
+        opacity: .05;
     }
     60%, 90% {
         transform: translate(30vw, 0);
-        opacity: .3;
+        opacity: .1;
         filter: drop-shadow(.5vw -.1vw .3vw rgba(255,255,0, .3));
     }
     100% {
         transform: translate(30vw, 0);
-        opacity: .4;
-        filter: drop-shadow(1vw -.3vw .3vw rgba(255,255,0, .4));
+        opacity: .2;
+        filter: drop-shadow(.7vw -.3vw .3vw rgba(255,255,0, .35));
     }
 }
 div.bgglow {
@@ -502,6 +502,23 @@ div.bgglow {
     100% {
         transform: translate(-15vw, -5vh) rotateY(50deg) skewX(28deg) scale(1.3, 1.4);
         transform-origin: left;
+    }
+}
+.snorring {
+    animation: snorring 2.7s infinite;
+}
+@keyframes snorring {
+    0%, 90%, 100% {
+        transform: translate(30vw, 0) scale(1, 1);
+        opacity: .2;
+        filter: drop-shadow(.7vw -.3vw .3vw rgba(255,255,0, .35));
+        animation-timing-function: ease-in;
+    }
+    23% {
+        transform: translate(30vw, 0) scale(.9, 1.05);
+        opacity: .3;
+        filter: drop-shadow(1vw -.3vw .3vw rgba(255,255,0, .4));
+        animation-timing-function: ease-in;
     }
 }
 #ball.onStage { /* need this to show a ball before gunshot */
