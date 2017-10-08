@@ -228,11 +228,11 @@ li {
 }
 /* animations */
 .move {
-    animation: move 4s linear forwards;
+    animation: move 5.37s .2s linear alternate 2;
 }
 @keyframes move {
     to {
-        transform: translate(93vw, 0) rotate(1440deg);
+        transform: translate(109vw, 0) rotate(1440deg);
     }
 }
 .moveTo30 {
@@ -400,7 +400,7 @@ li {
     }
 }
 .fade {
-    animation: fade 3.7s ease-in forwards;
+    animation: fade 3.1s ease-in forwards;
 }
 @keyframes fade {
     0% {

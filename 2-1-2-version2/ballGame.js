@@ -17,6 +17,7 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
     let eyes1Position = document.querySelector('#eyes1');
     let eyes2Position = document.querySelector('#eyes2');
     let allAudios = document.querySelectorAll('audio');
+    let sillyBall = document.querySelector('audio#sillyBall');
     let chuAudio = document.querySelector('audio#chu');
     let fallAudio = document.querySelector('audio#fall');
     let windAudio = document.querySelector('audio#wind');
@@ -31,7 +32,7 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
     function resetFakeBall() {
         fakeBallPositionH.style = "left: -7vw";
     }
-    function toggleVolume() { //call this only when selected animation has sound
+    function showVolumeIcon() { //call this only when selected animation has sound
         volumeOn.style.display = "block";
         volumeOn.addEventListener('click', toggleVolumeOff);
         function toggleVolumeOff() {
@@ -85,15 +86,18 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
         wind.className = ("wind");
         eyes1Position.className = ("");
         eyes2Position.className = ("");
-        toggleVolume();
         stopOtherAudio();
+        showVolumeIcon();
     }
 // ******* start any animation with reset scene ******* //
     resetScene();
     if (clicked !== "fallDown"){
         ball.className = clicked;
         ballGotShot.className = "";
-        if (clicked == "moveTo30") {
+        if (clicked == "move") {
+            sillyBall.play();
+            sillyBall.volume = .5;
+        } else if (clicked == "moveTo30") {
             chuAudio.play();
         } else if (clicked == "moveFrom30") {
             windAudio.play();
@@ -119,7 +123,7 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
             background.className = ("scene bg" + clicked);
             eyes1Position.className = (clicked);
             eyes2Position.className = (clicked);
-            eyes2Position.addEventListener('animationend', eyesMoveClose);
+            eyes2Position.addEventListener('animationend', eyesMoveClose); // bad code, will trigger function below every time eyes2 finishs animation
             function eyesMoveClose(){
                 eyes1Position.className = ("eyes1MoveClose");
                 eyes2Position.className = ("eyes2MoveClose");
