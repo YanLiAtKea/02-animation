@@ -176,14 +176,18 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
         }
     }
 })
-/*
+// *********** part 2, seperate X and Y motions
 let moreAnimation = document.querySelector('.buttonAreaMore');
 moreAnimation.addEventListener('click', function (clickedElem) {
     let clicked = clickedElem.target.id;
-    let ball = document.querySelector('#ball');
-    let background = document.querySelector('.scene');
+    let ball2 = document.querySelector('#ball2');
+    let ball2PositionX = document.querySelector('.ball2Horizontal');
+    let ball2PositionY = document.querySelector('.ball2Vertical');
+    ball2.className = (clicked);
+    ball2PositionX.className = ("ballWrapper ball2Horizontal "+ clicked);
+    ball2PositionY.className = ("ballWrapper ball2Vertical " +clicked);
     if(clicked == "sneak") {
-        ball.className = clicked;
-        background.className = ("scene bg"+clicked);
+        alert('still sneaking, ;)))');
     }
-})*/
+    if (clicked == "userControl"){}
+})

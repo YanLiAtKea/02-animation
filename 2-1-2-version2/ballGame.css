@@ -78,7 +78,7 @@ img#volumeOn, img#volumeOff {
     bottom: 17vh;
     margin-left: -7vw; /*out of scene */
 }
-.ballWrapper, .fakeBallWrapper {
+.ballWrapper, .fakeBallWrapper, .ballWrapper.stop2 {
     width: 7vw;
     height: 7vw;
     position: absolute;
@@ -145,23 +145,37 @@ img#ball2, img#ball3 {
     border-radius: 50%;
     opacity: 1;
 }
-#stop {
-    z-index: 1;
+.stopIcon {
     cursor: crosshair;
-    width: 13vw;
-    height: 13vw;
     border-radius: 50%;
-    background-color: yellow;
     text-align: center;
     padding: 1vw;
-    padding-top: 3.5vw;
     font-family: monospace;
     font-weight: bold;
-    font-size: 2.5vw;
-    line-height: 2.7vw;
     position: absolute;
-    right: 3vw;
-    top: 67vh;
+}
+#stop {
+    z-index: 2;
+    width: 13vw;
+    height: 13vw;
+    background-color: yellow;
+    padding-top: 2.5vw;
+    font-size: 2.5vw;
+    line-height: 2.6vw;
+    right: 4vw;
+    top: 63vh;
+}
+#stop2 {
+    z-index: 1;
+    width: 11vw;
+    height: 11vw;
+    background-color: hotpink;
+    padding-top: 2.3vw;
+    font-size: 2.2vw;
+    line-height: 2.3vw;
+    right: 17vw;
+    top: 77vh;
+
 }
 .buttonArea {
     width: 75vw;
@@ -631,6 +645,138 @@ div.bgglow {
         opacity: 1;
     }
 }
+/* part 2, seperate X and Y motion*/
+#ball2.bounceWithForce {
+    animation: changeShapePower .6s 5;
+}
+@keyframes changeShapePower {
+    0%, 38%, 45%, 100% {
+        transform: scale(1);
+        animation-timing-function: cubic-bezier(0.7, 0, 1, 1);
+    }
+    40% {
+        transform: scale(1.2, .8);
+        animation-timing-function: cubic-bezier(0, 0, 0.3, 1);
+    }
+    43% {
+        transform: scale(.8, 1.2);
+    }
+}
+.ball2Horizontal.bounceWithForce {
+    animation: bounceWithForceX 3s linear forwards;
+    bottom: 0;
+}
+@keyframes bounceWithForceX {
+    to {
+        transform: translateX(100vw) rotate(360deg);
+    }
+}
+.ball2Vertical.bounceWithForce {
+    animation: bounceWithForceY .6s 5;
+    bottom: 0;
+}
+@keyframes bounceWithForceY {
+    0%, 100% {
+        transform: translateY(-37vh);
+        animation-timing-function: cubic-bezier(0.7, 0, 1, 1);
+    }
+    40% {
+        transform: translateY(-17vh);
+        animation-timing-function: cubic-bezier(0, 0, 0.3, 1);
+    }
+}
+#ball2.bounceNatural {
+    animation: changeShapeNatural 3s;
+}
+@keyframes changeShapeNatural {
+    0%, 5%, 7%, 12%, 17%, 19%, 24%, 29%, 31%, 36%, 41%, 43%, 48%, 52%, 54%, 63%, 65%, 72%, 74%, 100% {
+        transform: scale(1);
+        animation-timing-function: ease-in;
+    }
+    6%, 18%, 30%, 42%, 53%, 64%, 73% {
+        transform: scale(1.05, .93);
+        animation-timing-function: ease-out;
+    }
+}
+.ball2Horizontal.bounceNatural {
+    animation: bounceNaturalX 3s ease-out forwards;
+    bottom: 0;
+}
+@keyframes bounceNaturalX {
+    to {
+        transform: translateX(100vw) rotate(450deg);
+    }
+}
+.ball2Vertical.bounceNatural {
+    animation: bounceNaturalY 3s forwards;
+    bottom: 0;
+}
+@keyframes bounceNaturalY {
+    0% {
+        transform: translateY(-37vh);
+        animation-timing-function: ease-in;
+    }
+    6% {
+        transform: translateY(-17vh);
+        animation-timing-function: ease-out;
+    }
+    12% {
+        transform: translateY(-33vh);
+        animation-timing-function: ease-in;
+    }
+    18% {
+        transform: translateY(-17vh);
+        animation-timing-function: ease-out;
+    }
+    24% {
+        transform: translateY(-29vh);
+        animation-timing-function: ease-in;
+    }
+    30% {
+        transform: translateY(-17vh);
+        animation-timing-function: ease-out;
+    }
+    36% {
+        transform: translateY(-26vh);
+        animation-timing-function: ease-in;
+    }
+    42% {
+        transform: translateY(-17vh);
+        animation-timing-function: ease-out;
+    }
+    47% {
+        transform: translateY(-22vh);
+        animation-timing-function: ease-in;
+    }
+    53%{
+        transform: translateY(-17vh);
+        animation-timing-function: ease-out;
+    }
+    59% {
+        transform: translateY(-19vh);
+        animation-timing-function: ease-out;
+    }
+    64% {
+        transform: translateY(-17vh);
+        animation-timing-function: ease-out;
+    }
+    69% {
+        transform: translateY(-18vh);
+        animation-timing-function: ease-out;
+    }
+    73%, 100% {
+        transform: translateY(-17vh);
+        animation-timing-function: ease-out;
+    }
+
+}
+
+
+
+
+
+
+/*
 .sneak {
     animation: sneak 10s forwards;
 }
@@ -742,3 +888,5 @@ div.bgglow {
 div.bgsneak {
     animation: darkenBackground .5s 6s forwards;
 }
+
+*/
