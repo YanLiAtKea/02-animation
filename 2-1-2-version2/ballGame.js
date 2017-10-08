@@ -3,7 +3,7 @@ document.querySelector('.unfinished').addEventListener('click', toggleNoteArea);
 function toggleNoteArea() {
 document.querySelector('.unfinished').classList.toggle('clicked');
 }
-// ******* use "overwrite class" approach to switch between simple animations, no add/remove class or toggle, no need to refresh page. other approaches see below. ******* //
+// FOR SIMPLE ANIMATIONS, use "overwrite className" approach to switch between them, no add/remove class or toggle, no need to refresh page. Other approaches see below.
 let simpleAnimation = document.querySelector('.buttonAreaSimple');
 simpleAnimation.addEventListener('click', function (clickedElem) {
     let clicked = clickedElem.target.id;
@@ -50,7 +50,7 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
             });
         }
     }
-    // stop and reset all audio, so won't disturb the new one and so when click back this button, audio won't just resume.
+    // stop all audio, so won't disturb the new one. and reset audio so when click back this button, audio won't just resume.
     function stopOtherAudio() {
         allAudios.forEach(function (playing) {
             playing.pause();
@@ -63,87 +63,80 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
         ballAudio.play();
         ballAudio.volume = .3;
     };
-    // ball fall audio
+    // ball fall sound
     function ballFall() {
         fallAudio.play();
         fallAudio.volume = .7;
         fallAudio.playbackRate = 1.07;
     }
-    // night audio
+    // night sound
     function nightBackground(){
         nightAudio.play();
         nightAudio.volume = .3;
     }
-// *********** animations ***********//
-    if (clicked !== "") { //remove the possibility to stop animation when user click anywhere on the page, like sound control, position control etc
+    // reset scene
+    function resetScene(){
         resetFakeBall();
         stopOtherAudio();
-        let movement = clickedElem.target.id;
         background.className = ("scene");
         shadow.className = ("shadow");
         wind.className = ("wind");
         eyes1Position.className = ("");
         eyes2Position.className = ("");
-        if (movement !== "fallDown") {
-            ball.className = movement;
-            ballGotShot.className = "";
-            if (movement == "moveTo30") {
-                toggleVolume();
-                chuAudio.play();
-            } else if (movement == "moveFrom30") {
-                toggleVolume();
-                windAudio.play();
-                wind.className = ("wind wind" + movement);
-            } else if (movement == "oneJump") {
-                toggleVolume();
-                shadow.className = ("shadow shadow" + movement);
-                setTimeout(ballBounceSound, 870);
-            } else if (movement == "jump") {
-                toggleVolume();
-                shadow.className = ("shadow shadow" + movement);
-                setTimeout(ballBounceSound, 500);
-                ballAudio.playbackRate = 1.37;
-                ballAudio.loop = true;
-            } else if (movement == "fade") {
-                stopOtherAudio();
-                toggleVolume();
-                setTimeout(nightBackground, 2000);
-                background.className = ("scene bg" + movement);
-            } else if (movement == "glow"){
-                toggleVolume();
-                stopOtherAudio();
-                ball.className = (""); //reset ball
-                night2Audio.play();
-                background.className = ("scene bg" + movement);
-                eyes1Position.className = (movement);
-                eyes2Position.className = (movement);
-                eyes2Position.addEventListener('animationend', eyesMoveClose);
-                function eyesMoveClose(){
-                    eyes1Position.className = ("eyes1MoveClose");
-                    eyes2Position.className = ("eyes2MoveClose");
-                    ball.className = (movement);
-                }
-            } else if (movement == "mirror") {
-                toggleVolume();
-                chuAudio.play();
-                chuAudio.playbackRate = 1.05;
-                fakeBallPositionH.style = "left: 23vw";
-            } else if (movement == "shake") {
-                toggleVolume();
-                shakeAudio.play();
-                shakeAudio.playbackRate = 3.7;
+        toggleVolume();
+    }
+// ******* start animation, start with reset scene ******* //
+    resetScene();
+    if (clicked !== "fallDown"){
+        ball.className = clicked;
+        ballGotShot.className = "";
+        if (clicked == "moveTo30") {
+            chuAudio.play();
+        } else if (clicked == "moveFrom30") {
+            windAudio.play();
+            wind.className = ("wind wind" + clicked);
+        } else if (clicked == "oneJump") {
+            shadow.className = ("shadow shadow" + clicked);
+            setTimeout(ballBounceSound, 870);
+        } else if (clicked == "jump") {
+            shadow.className = ("shadow shadow" + clicked);
+            setTimeout(ballBounceSound, 500);
+            ballAudio.playbackRate = 1.37;
+            ballAudio.loop = true;
+        } else if (clicked == "fade") {
+            stopOtherAudio();
+            setTimeout(nightBackground, 2000);
+            background.className = ("scene bg" + clicked);
+        } else if (clicked == "glow"){
+            stopOtherAudio();
+            ball.className = (""); //reset ball
+            night2Audio.play();
+            background.className = ("scene bg" + clicked);
+            eyes1Position.className = (clicked);
+            eyes2Position.className = (clicked);
+            eyes2Position.addEventListener('animationend', eyesMoveClose);
+            function eyesMoveClose(){
+                eyes1Position.className = ("eyes1MoveClose");
+                eyes2Position.className = ("eyes2MoveClose");
+                ball.className = (clicked);
             }
-        } else if (movement == "fallDown"){ //single this out, cuz need to have tha ball on stage, then fire gun, then wait, then start original animation
-            ball.className = "onStage";
-            toggleVolume();
-            document.querySelector('#shot').play();
-            document.querySelector('#shot').volume = .2;
-            document.querySelector('#shot').addEventListener('ended', startAnimation);
-            function startAnimation() {
-                ball.className = "";
-                ballGotShot.className = "ballGotShot"+movement;
-                setTimeout(ballFall, 130);
-            }
+        } else if (clicked == "mirror") {
+            chuAudio.play();
+            chuAudio.playbackRate = 1.05;
+            fakeBallPositionH.style = "left: 23vw";
+        } else if (clicked == "shake") {
+            shakeAudio.play();
+            shakeAudio.playbackRate = 3.7;
+        }
+    } else if (clicked == "fallDown"){ //single this out, cuz need to have tha good ball on stage, then fire gun, then wait, then switch to a broken ball andstart original animation
+        ball.className = "onStage";
+        document.querySelector('#shot').play();
+        document.querySelector('#shot').volume = .2;
+        document.querySelector('#shot').addEventListener('ended', startAnimation);
+        function startAnimation() {
+            ball.className = "";
+            ballGotShot.className = "ballGotShot"+clicked;
+            setTimeout(ballFall, 130);
         }
     }
 })
