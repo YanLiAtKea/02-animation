@@ -1,3 +1,4 @@
+alert("didn't have time to make an intro animation, so please excuse this alert. \n\nNO REFRESH needed between animations\n\nMr. Ball nr.1 and nr.2 can co-exsist on the stage, just click another button in the other group, no need to wait for the first ball to stop.\n\nEach ball can only has one state though, so when click another button within the same group, that ball will do something else~\n\nYou might wanna turn up the volume ;)\n\nsome animations/ audios only work in Chrome");
 // expand or hide note area
 document.querySelector('.unfinished').addEventListener('click', toggleNoteArea);
 function toggleNoteArea() {
@@ -189,5 +190,7 @@ moreAnimation.addEventListener('click', function (clickedElem) {
     if(clicked == "sneak") {
         alert('still sneaking, ;)))');
     }
-    if (clicked == "userControl"){}
+    if (clicked == "userControl"){
+        alert('working on it..')
+    }
 })

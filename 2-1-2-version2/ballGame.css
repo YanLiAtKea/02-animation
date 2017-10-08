@@ -28,6 +28,9 @@ a, a:visited{
     text-decoration: none;
     cursor: crosshair;
 }
+b {
+    font-size: 1.1em;
+}
 .scene {
     position: relative;
     height: 60vh;
