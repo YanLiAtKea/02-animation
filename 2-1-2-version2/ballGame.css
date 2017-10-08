@@ -521,6 +521,40 @@ div.bgglow {
         animation-timing-function: ease-in;
     }
 }
+.snorringShort {
+    animation: snorringShort 3.13s 2 forwards;
+}
+@keyframes snorringShort {
+    0%, 90%, 100% {
+        transform: translate(30vw, 0) scale(1, 1);
+        opacity: .2;
+        filter: drop-shadow(.7vw -.3vw .3vw rgba(255,255,0, .35));
+        animation-timing-function: ease-in;
+    }
+    35% {
+        transform: translate(30vw, 0) scale(.9, 1.1);
+        opacity: .3;
+        filter: drop-shadow(1vw -.3vw .3vw rgba(255,255,0, .4));
+        animation-timing-function: ease-in;
+    }
+}
+.snorringFast {
+    animation: snorringFast 1.04s forwards;
+}
+@keyframes snorringFast {
+    0%, 90%, 100% {
+        transform: translate(30vw, 0) scale(1, 1);
+        opacity: .2;
+        filter: drop-shadow(.7vw -.3vw .3vw rgba(255,255,0, .35));
+        animation-timing-function: ease-in;
+    }
+    35% {
+        transform: translate(30vw, 0) scale(.9, 1.1);
+        opacity: .3;
+        filter: drop-shadow(1vw -.3vw .3vw rgba(255,255,0, .4));
+        animation-timing-function: ease-in;
+    }
+}
 #ball.onStage { /* need this to show a ball before gunshot */
     margin-left: 23vw;
 }

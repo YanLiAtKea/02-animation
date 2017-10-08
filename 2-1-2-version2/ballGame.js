@@ -75,6 +75,7 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
         nightAudio.play();
         nightAudio.volume = .3;
     }
+    // start snorring
     function startSnorring() {
         snorringAudio.play();
         snorringAudio.loop = true;
@@ -124,10 +125,37 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
                 eyes1Position.className = ("eyes1MoveClose");
                 eyes2Position.className = ("eyes2MoveClose");
                 ball.className = (clicked);
-                ball.addEventListener('animationend', snorring);
+                ball.addEventListener('animationend', snorringShort);
+            }
+            function snorringShort(){
+                if (ball.className == "glow"){
+                    startSnorring();
+                    ball.className = ("snorringShort");
+                    ball.addEventListener('animationend', snorringLoudFast);
+                    function snorringLoudFast() {
+                        if (ball.className == "snorringShort") {
+                            ball.className = "snorringFast";
+                            snorringAudio.pause();
+                            snorringAudio.loop = false;
+                            document.querySelector('#snorringShort').play();
+                            document.querySelector('#snorringShort').addEventListener('ended', backToNormalSnorring);
+                            function backToNormalSnorring(){
+                                startSnorring();
+                                ball.className = ("snorring");
+                            }
+                        } else {
+                            return;
+                        }
+                    }
+                } else {
+                    return;
+                }
+            }
+            /*
+                eyes2Position.addEventListener('animationend', snorring)
             }
             function snorring(){
-                if (ball.className == "glow"){
+                if (ball.className == "snorringShort"){
                     startSnorring();
                     ball.className = ("snorring");
                     } else {
@@ -135,7 +163,7 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
                     }
                 }
 //                eyes1Position.className = ("eyes1BackOff");
-//                eyes2Position.className = ("eyes2BackOff");
+//                eyes2Position.className = ("eyes2BackOff"); */
         } else if (clicked == "mirror") {
             chuAudio.play();
             chuAudio.playbackRate = 1.05;
