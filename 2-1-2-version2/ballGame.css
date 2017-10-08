@@ -505,7 +505,7 @@ div.bgglow {
     }
 }
 .snorring {
-    animation: snorring 2.7s infinite;
+    animation: snorring 3.13s infinite;
 }
 @keyframes snorring {
     0%, 90%, 100% {
@@ -514,8 +514,8 @@ div.bgglow {
         filter: drop-shadow(.7vw -.3vw .3vw rgba(255,255,0, .35));
         animation-timing-function: ease-in;
     }
-    23% {
-        transform: translate(30vw, 0) scale(.9, 1.05);
+    35% {
+        transform: translate(30vw, 0) scale(.9, 1.1);
         opacity: .3;
         filter: drop-shadow(1vw -.3vw .3vw rgba(255,255,0, .4));
         animation-timing-function: ease-in;

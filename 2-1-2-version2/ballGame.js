@@ -75,20 +75,32 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
         nightAudio.play();
         nightAudio.volume = .3;
     }
+    function startSnorring() {
+        snorringAudio.play();
+        snorringAudio.loop = true;
+    }
+    function stopSnorring(){
+        snorringAudio.currentTime = 0;
+        snorringAudio.pause();
+        snorringAudio.loop = false;
+        ball.classList.remove('snorring');
+    }
     // reset scene
     function resetScene(){
         resetFakeBall();
-        stopOtherAudio();
         background.className = ("scene");
         shadow.className = ("shadow");
         wind.className = ("wind");
         eyes1Position.className = ("");
         eyes2Position.className = ("");
         toggleVolume();
+        stopOtherAudio();
+        stopSnorring();
+        console.log('reset scene');
     }
 // ******* start animation, start with reset scene ******* //
-    resetScene();
     if (clicked !== "fallDown"){
+    resetScene();
         ball.className = clicked;
         ballGotShot.className = "";
         if (clicked == "moveTo30") {
@@ -101,7 +113,7 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
             setTimeout(ballBounceSound, 870);
         } else if (clicked == "jump") {
             shadow.className = ("shadow shadow" + clicked);
-            setTimeout(ballBounceSound, 500);
+            setTimeout(ballBounceSound, 490);
             ballAudio.playbackRate = 1.37;
             ballAudio.loop = true;
         } else if (clicked == "fade") {
@@ -123,9 +135,8 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
                 ball.addEventListener('animationend', snorring);
             }
             function snorring(){
+                startSnorring();
                 ball.className = ("snorring");
-                snorringAudio.play();
-                snorringAudio.loop = true;
 //                eyes1Position.className = ("eyes1BackOff");
 //                eyes2Position.className = ("eyes2BackOff");
             }
