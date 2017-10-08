@@ -7,6 +7,7 @@ document.querySelector('.unfinished').classList.toggle('clicked');
 let simpleAnimation = document.querySelector('.buttonAreaSimple');
 simpleAnimation.addEventListener('click', function (clickedElem) {
     let clicked = clickedElem.target.id;
+    let horizon = document.querySelector('.horizon');
     let ball = document.querySelector('#ball');
     let ballGotShot = document.querySelector('#ballGotShot');
     let fakeBallPositionH = document.querySelector('.fakeBallWrapper');
@@ -27,12 +28,10 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
     let volumeOn = document.querySelector('#volumeOn');
     let volumeOff = document.querySelector('#volumeOff');
 // *********** some reusable functions *********** //
-    // reset fakeBall
     function resetFakeBall() {
         fakeBallPositionH.style = "left: -7vw";
     }
-    // show/hide volume icon and toggle, call this only when selected animation has sound
-    function toggleVolume() {
+    function toggleVolume() { //call this only when selected animation has sound
         volumeOn.style.display = "block";
         volumeOn.addEventListener('click', toggleVolumeOff);
         function toggleVolumeOff() {
@@ -51,38 +50,36 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
             })
         }
     }
-    // stop all audio, so won't disturb the new one. and reset audio so when click back this button, audio won't just resume.
     function stopOtherAudio() {
         allAudios.forEach(function (playing) {
-            playing.pause();
-            playing.currentTime = 0;
-            playing.loop = false;
+            playing.pause(); // so won't disturb the new audio
+            playing.currentTime = 0; //so when click back this button, audio won't just resume
+            playing.loop = false; //reset loop
         })
     };
-    // ball bounce sound
     function ballBounceSound() {
         ballAudio.play();
         ballAudio.volume = .3;
     };
-    // ball fall sound
     function ballFall() {
         fallAudio.play();
         fallAudio.volume = .7;
         fallAudio.playbackRate = 1.07;
     }
-    // night sound
     function nightBackground(){
         nightAudio.play();
         nightAudio.volume = .3;
     }
-    // start snorring
+    function fadeHorizon() {
+        horizon.className = ("horizon horizonGlow");
+    }
     function startSnorring() {
         snorringAudio.play();
         snorringAudio.loop = true;
     }
-    // reset scene
     function resetScene(){
         resetFakeBall();
+        horizon.className = ("horizon");
         background.className = ("scene");
         shadow.className = ("shadow");
         wind.className = ("wind");
@@ -91,7 +88,7 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
         toggleVolume();
         stopOtherAudio();
     }
-// ******* start animation, start with reset scene ******* //
+// ******* start any animation with reset scene ******* //
     resetScene();
     if (clicked !== "fallDown"){
         ball.className = clicked;
@@ -113,9 +110,11 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
             stopOtherAudio();
             setTimeout(nightBackground, 2000);
             background.className = ("scene bg" + clicked);
+            setTimeout(fadeHorizon, 2000);
         } else if (clicked == "glow"){
             stopOtherAudio();
-            ball.className = (""); //reset ball
+            ball.className = ("");
+            horizon.className = "horizon horizonGlow";
             night2Audio.play();
             background.className = ("scene bg" + clicked);
             eyes1Position.className = (clicked);
@@ -140,6 +139,7 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
                             document.querySelector('#snorringShort').play();
                             document.querySelector('#snorringShort').addEventListener('ended', backToNormalSnorring);
                             function backToNormalSnorring(){
+                                eyes1Position.className = "eyes1BackOff";
                                 startSnorring();
                                 ball.className = ("snorring");
                             }
@@ -151,19 +151,6 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
                     return;
                 }
             }
-            /*
-                eyes2Position.addEventListener('animationend', snorring)
-            }
-            function snorring(){
-                if (ball.className == "snorringShort"){
-                    startSnorring();
-                    ball.className = ("snorring");
-                    } else {
-                        return;
-                    }
-                }
-//                eyes1Position.className = ("eyes1BackOff");
-//                eyes2Position.className = ("eyes2BackOff"); */
         } else if (clicked == "mirror") {
             chuAudio.play();
             chuAudio.playbackRate = 1.05;
