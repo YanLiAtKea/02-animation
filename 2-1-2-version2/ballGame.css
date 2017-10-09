@@ -81,7 +81,7 @@ img#volumeOn, img#volumeOff {
     bottom: 17vh;
     margin-left: -7vw; /*out of scene */
 }
-.ballWrapper, .fakeBallWrapper, .ballWrapper.stop2 {
+.ballWrapper, .fakeBallWrapper, .ballWrapper.stop2, .ball2Vertical, .ball2Horizontal {
     width: 7vw;
     height: 7vw;
     position: absolute;
@@ -159,19 +159,19 @@ img#ball2, img#ball3 {
 }
 .allButtonArea {
     width: 90vw;
-    height: 17em;
+    height: 18em;
     margin: 0 auto;
     position: relative;
 }
 .buttonAreaSimple {
     width: 50%;
-    height: 17em;
+    height: 18em;
     position: absolute;
     left: 0;
 }
 .buttonAreaMore {
     width: 37%;
-    height: 17em;
+    height: 18em;
     position: absolute;
     right: 0;
     text-align: right;
@@ -186,14 +186,14 @@ img#ball2, img#ball3 {
 }
 #stop {
     z-index: 3;
-    width: 15vw;
-    height: 15vw;
+    width: 16vw;
+    height: 16vw;
     background-color: yellow;
     padding-top: 3vw;
-    font-size: 2.9vw;
+    font-size: 3vw;
     line-height: 3vw;
-    left: 39vw;
-    bottom: -2vw;
+    left: 38vw;
+    bottom: -3vw;
 }
 #stop2 {
     z-index: 2;
@@ -805,20 +805,66 @@ div.bgglow {
     }
 
 }
-.ball2Vertical.loseGravity {
-    animation: loseGravity 3s forwards;
+.ball2Vertical.loseGravityY {
+    animation: loseGravityY 1s cubic-bezier(0, 0, .4, 1) forwards;
 }
-@keyframes loseGravity {
+@keyframes loseGravityY {
     0% {
-        transform: translateY(-20vh);
+        transform: translateY(17vh);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+.ball2Horizontal.loseGravityX {
+        transform: translateX(37vw);
+}
+.ball2Horizontal.moveLeft {
+    animation: moveLeft .5s ease-in forwards;
+}
+@keyframes moveLeft {
+    0% {
+        transform: translateX(37vw);
+    }
+    100% {
+        transform: translateX(17vw);
+
+    }
+}
+.ball2Horizontal.moveRight {
+    animation: moveRight .5s ease-in forwards;
+}
+@keyframes moveRight {
+    0% {
+        transform: translateX(37vw);
+    }
+    100% {
+        transform: translateX(57vw);
+
+    }
+}
+.ball2Vertical.moveUp {
+    animation: moveUp .5 ease-out forwards;
+}
+@keyframes moveUp {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10vh);
+    }
+}
+.ball2Vertical.moveDown {
+    animation: moveDown .5 ease-out forwards;
+}
+@keyframes moveDown {
+    0% {
+        transform: translateY(0);
     }
     100% {
         transform: translateY(20vh);
     }
 }
-
-
-
 
 
 /*

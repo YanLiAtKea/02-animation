@@ -191,41 +191,37 @@ moreAnimation.addEventListener('click', function (clickedElem) {
             alert('still sneaking, ;)))');
         }
     } else {
-        ball2PositionY.className = ("ball2Vertical loseGravity");
-        function loseGravity(){
-
-        };
-        window.addEventListener("keydown", function (event) {
-          if (event.defaultPrevented) {
-            return; // Do nothing if the event was already processed
-          }
-          switch (event.key) {
-            case "ArrowDown":
-                  alert('down');
-              break;
-            case "ArrowUp":
-                  alert('up');
-              break;
-            case "ArrowLeft":
-                alert('left');
-                break;
-            case "ArrowRight":
-                alert('right')
-                break;
-            case "Shift":
-                alert('+')
-              break;
-            case "Control":
-                alert('-')
-              break;
-            default:
-              return; // Quit when this doesn't handle the key event.
-          }
-          // Cancel the default action to avoid it being handled twice
-          event.preventDefault();
-        }, true);
-
-
-
+        ball2PositionX.className = ("ball2Horizontal loseGravityX");
+        ball2PositionY.className = ("ball2Vertical loseGravityY");
+        ball2PositionY.addEventListener('animationend', userControl);
+        function userControl(){
+            window.addEventListener("keydown", function (event) {
+              if (event.defaultPrevented) {
+                return; // Do nothing if the event was already processed
+              }
+              switch (event.key) {
+                case "ArrowDown":
+                    ball2PositionY.className = ('ball2Vertical loseGravityY moveDown');
+                  break;
+                case "ArrowUp":
+                    ball2PositionY.className = ('ball2Vertical loseGravityY moveUp');
+                  break;
+                case "ArrowLeft":
+                    ball2PositionX.className = ('ball2Horizontal loseGravityX moveLeft');
+                    break;
+                case "ArrowRight":
+                    ball2PositionX.className = ('ball2Horizontal loseGravityX moveRight');
+                    break;
+                case "Shift":
+                  break;
+                case "Control":
+                  break;
+                default:
+                  return; // Quit when this doesn't handle the key event.
+              }
+              // Cancel the default action to avoid it being handled twice
+              event.preventDefault();
+            }, true);
+        }
     }
 })
