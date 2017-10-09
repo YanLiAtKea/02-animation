@@ -277,11 +277,11 @@ li {
 }
 /* animations */
 .move {
-    animation: move 5.37s .2s linear alternate 2;
+    animation: move 5.37s .3s linear alternate 2;
 }
 @keyframes move {
     to {
-        transform: translate(109vw, 0) rotate(1440deg);
+        transform: translate(103vw, 0) rotate(1440deg);
     }
 }
 .moveTo30 {
@@ -805,7 +805,17 @@ div.bgglow {
     }
 
 }
-
+.ball2Vertical.loseGravity {
+    animation: loseGravity 3s forwards;
+}
+@keyframes loseGravity {
+    0% {
+        transform: translateY(-20vh);
+    }
+    100% {
+        transform: translateY(20vh);
+    }
+}
 
 
 

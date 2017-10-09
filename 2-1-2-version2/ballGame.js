@@ -1,4 +1,4 @@
-alert("didn't have time to make an intro animation, so please excuse this alert. \n\nNO REFRESH needed between animations\n\nMr. Ball nr.1 and nr.2 can co-exsist on the stage, just click another button in the other group, no need to wait for the first ball to stop.\n\nEach ball can only has one state though, so when click another button within the same group, that ball will do something else~\n\nYou might wanna turn up the volume ;)\n\nsome animations/ audios only work in Chrome");
+alert("didn't have time to make an intro animation, so please excuse this alert. \n\nNO REFRESH needed between animations\n\nMr. Ball nr.1 and nr.2 can co-exsist on the stage, just click a button in the other group, no need to wait for the first ball to stop.\n\nEach ball can only has one state though, so when click another button within the same group, that ball will do something else~\n\nYou might wanna turn up the volume ;)\n\nsome animations/ audios only work in Chrome");
 // expand or hide note area
 document.querySelector('.unfinished').addEventListener('click', toggleNoteArea);
 function toggleNoteArea() {
@@ -97,7 +97,7 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
         ballGotShot.className = "";
         if (clicked == "move") {
             sillyBall.play();
-            sillyBall.volume = .5;
+            sillyBall.volume = .4;
         } else if (clicked == "moveTo30") {
             chuAudio.play();
         } else if (clicked == "moveFrom30") {
@@ -181,16 +181,51 @@ simpleAnimation.addEventListener('click', function (clickedElem) {
 let moreAnimation = document.querySelector('.buttonAreaMore');
 moreAnimation.addEventListener('click', function (clickedElem) {
     let clicked = clickedElem.target.id;
-    let ball2 = document.querySelector('#ball2');
     let ball2PositionX = document.querySelector('.ball2Horizontal');
     let ball2PositionY = document.querySelector('.ball2Vertical');
-    ball2.className = (clicked);
-    ball2PositionX.className = ("ballWrapper ball2Horizontal "+ clicked);
-    ball2PositionY.className = ("ballWrapper ball2Vertical " +clicked);
-    if(clicked == "sneak") {
-        alert('still sneaking, ;)))');
-    }
-    if (clicked == "userControl"){
-        alert('working on it..')
+    if (clicked !== "userControl"){
+        ball2.className = (clicked);
+        ball2PositionX.className = ("ballWrapper ball2Horizontal "+ clicked);
+        ball2PositionY.className = ("ballWrapper ball2Vertical " +clicked);
+        if(clicked == "sneak") {
+            alert('still sneaking, ;)))');
+        }
+    } else {
+        ball2PositionY.className = ("ball2Vertical loseGravity");
+        function loseGravity(){
+
+        };
+        window.addEventListener("keydown", function (event) {
+          if (event.defaultPrevented) {
+            return; // Do nothing if the event was already processed
+          }
+          switch (event.key) {
+            case "ArrowDown":
+                  alert('down');
+              break;
+            case "ArrowUp":
+                  alert('up');
+              break;
+            case "ArrowLeft":
+                alert('left');
+                break;
+            case "ArrowRight":
+                alert('right')
+                break;
+            case "Shift":
+                alert('+')
+              break;
+            case "Control":
+                alert('-')
+              break;
+            default:
+              return; // Quit when this doesn't handle the key event.
+          }
+          // Cancel the default action to avoid it being handled twice
+          event.preventDefault();
+        }, true);
+
+
+
     }
 })
