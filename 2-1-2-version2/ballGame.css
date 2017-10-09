@@ -70,7 +70,7 @@ img#volumeOn, img#volumeOff {
     border-top: 4px solid #222;
     position: absolute;
     bottom: 17.5vh;
-    opacity: .05;
+    opacity: .09;
 }
 .scene img, img.stop, #ballShot { /*the first ball*/
     z-index: 1;
@@ -151,8 +151,8 @@ img#ball2, img#ball3 {
 .stopIcon {
     cursor: crosshair;
     border-radius: 50%;
-    text-align: center;
-    padding: 1vw;
+    text-align: left;
+    padding-left: 1.5vw;
     font-family: monospace;
     font-weight: bold;
     position: absolute;
@@ -188,10 +188,11 @@ img#ball2, img#ball3 {
     z-index: 3;
     width: 16vw;
     height: 16vw;
-    background-color: yellow;
-    padding-top: 3vw;
-    font-size: 3vw;
-    line-height: 3vw;
+    background-color: rgba(255,255,0,.8);
+    padding-top: 4vw;
+    padding-left: 2.5vw;
+    font-size: 2.7vw;
+    line-height: 2.8vw;
     left: 38vw;
     bottom: -3vw;
 }
@@ -200,11 +201,24 @@ img#ball2, img#ball3 {
     width: 9vw;
     height: 9vw;
     background-color: hotpink;
-    padding-top: 1.7vw;
-    font-size: 1.7vw;
-    line-height: 1.9vw;
+    opacity: .9;
+    padding-top: 2.5vw;
+    font-size: 1.4vw;
+    line-height: 1.5vw;
     right: 27vw;
     bottom: 7vw;
+}
+.bandage1 {
+    width: 4.3vw;
+    position: absolute;
+    right: 1.3vw;
+    top: 1.9vw;
+}
+.bandage2 {
+    width: 1.7vw;
+    position: absolute;
+    right: 1.1vw;
+    top: 1.3vw;
 }
 .buttonArea p {
     color: #777;
@@ -449,7 +463,7 @@ li {
     }
 }
 .fade {
-    animation: fade 3.1s ease-in forwards;
+    animation: fade 3.61s ease-in forwards;
 }
 @keyframes fade {
     0% {
@@ -583,13 +597,13 @@ div.bgglow {
 @keyframes snorring {
     0%, 90%, 100% {
         transform: translate(30vw, 0) scale(1, 1);
-        opacity: .2;
+        opacity: .3;
         filter: drop-shadow(.7vw -.3vw .3vw rgba(255,255,0, .35));
         animation-timing-function: ease-in;
     }
     35% {
         transform: translate(30vw, 0) scale(.9, 1.1);
-        opacity: .3;
+        opacity: .4;
         filter: drop-shadow(1vw -.3vw .3vw rgba(255,255,0, .4));
         animation-timing-function: ease-in;
     }
