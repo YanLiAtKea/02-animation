@@ -183,6 +183,8 @@ moreAnimation.addEventListener('click', function (clickedElem) {
     let clicked = clickedElem.target.id;
     let ball2PositionX = document.querySelector('.ball2Horizontal');
     let ball2PositionY = document.querySelector('.ball2Vertical');
+    ball2PositionX.style.removeProperty('left'); // clear user control
+    ball2PositionY.style.removeProperty('bottom'); // clear user control
     if (clicked !== "userControl"){
         ball2.className = (clicked);
         ball2PositionX.className = ("ballWrapper ball2Horizontal "+ clicked);
@@ -190,20 +192,23 @@ moreAnimation.addEventListener('click', function (clickedElem) {
         if(clicked == "sneak") {
             alert('still sneaking, ;)))');
         }
-    } else {
+    } else if(clicked == "userControl") {
         ball2PositionX.className = ("ball2Horizontal loseGravityX");
         ball2PositionY.className = ("ball2Vertical loseGravityY");
         ball2PositionY.addEventListener('animationend', userControl);
         function userControl(){
             window.addEventListener("keydown", function (event) {
-              if (event.defaultPrevented) {
-                return; // Do nothing if the event was already processed
-              }
+//              if (event.defaultPrevented) {
+//                return; // Do nothing if the event was already processed
+//              }
                 let currentPositionV = document.querySelector('.ball2Vertical');
                 let currentPositionVStyle = window.getComputedStyle(currentPositionV);
                 let currentPositionY = String(currentPositionVStyle.getPropertyValue('bottom'));
                 let YNr = parseFloat(currentPositionY);
-                let currentPositionX = currentPositionVStyle.getPropertyValue('left');           let XNr = parseFloat(currentPositionX);
+                let currentPositionH = document.querySelector('.ball2Horizontal');
+                let currentPositionHStyle = window.getComputedStyle(currentPositionH);
+                let currentPositionX = currentPositionHStyle.getPropertyValue('left');
+                let XNr = parseFloat(currentPositionX);
                 if (event.key == "ArrowDown"){
                     newPositionY = String(YNr - 50) + "px";
                     currentPositionV.style.bottom = newPositionY;
@@ -214,15 +219,14 @@ moreAnimation.addEventListener('click', function (clickedElem) {
                 }
                 if (event.key == "ArrowLeft"){
                     newPositionX = String(XNr - 50) + "px";
-                    currentPositionV.style.left = newPositionX;
+                    currentPositionH.style.left = newPositionX;
                 }
                 if (event.key == "ArrowRight"){
                     newPositionX = String(XNr + 50) + "px";
-                    currentPositionV.style.left = newPositionX;
+                    currentPositionH.style.left = newPositionX;
                 }
-              event.preventDefault(); // Cancel the default action to avoid it being handled twice
-
-            }, true);
+//              event.preventDefault(); // Cancel the default action to avoid it being handled twice
+            });
         }
     }
 })

@@ -81,7 +81,7 @@ img#volumeOn, img#volumeOff {
     bottom: 17vh;
     margin-left: -7vw; /*out of scene */
 }
-.ballWrapper, .fakeBallWrapper, .ballWrapper.stop2, .ball2Vertical, .ball2Horizontal {
+.ballWrapper, .fakeBallWrapper, .ballWrapper.stop2, .ball2Vertical, .ball2Horizontal, .ball2Vertical.stop2, .ball2Horizontal.stop2 {
     width: 7vw;
     height: 7vw;
     position: absolute;
@@ -702,6 +702,9 @@ div.bgglow {
     bottom: 0;
 }
 @keyframes bounceWithForceX {
+    from {
+        transform: translateX(0) rotate(0);
+    }
     to {
         transform: translateX(100vw) rotate(360deg);
     }
@@ -738,6 +741,9 @@ div.bgglow {
     bottom: 0;
 }
 @keyframes bounceNaturalX {
+    from {
+        transform: translateX(0) rotate(0);
+    }
     to {
         transform: translateX(100vw) rotate(450deg);
     }
@@ -819,6 +825,7 @@ div.bgglow {
 .ball2Horizontal.loseGravityX {
         transform: translateX(37vw);
 }
+/*
 .ball2Horizontal.moveLeft {
     animation: moveLeft .5s ease-in forwards;
 }
@@ -867,7 +874,7 @@ div.bgglow {
 }
 
 
-/*
+
 .sneak {
     animation: sneak 10s forwards;
 }
