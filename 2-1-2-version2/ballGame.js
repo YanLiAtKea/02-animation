@@ -199,18 +199,26 @@ moreAnimation.addEventListener('click', function (clickedElem) {
               if (event.defaultPrevented) {
                 return; // Do nothing if the event was already processed
               }
+                let currentPostion = document.querySelector('.ball2Vertical');
+                let currentPositionStyle = window.getComputedStyle(currentPostion);
+                let currentPostionY = currentPositionStyle.getPropertyValue('bottom');
+                let currentPostionX = currentPositionStyle.getPropertyValue('left');
               switch (event.key) {
                 case "ArrowDown":
                     ball2PositionY.className = ('ball2Vertical loseGravityY moveDown');
+                      alert("Y: "+currentPostionY);
                   break;
                 case "ArrowUp":
-                    ball2PositionY.className = ('ball2Vertical loseGravityY moveUp');
+                      ball2PositionY.className = ('ball2Vertical loseGravityY moveUp');
+                      alert("Y:" +currentPostionY);
                   break;
                 case "ArrowLeft":
                     ball2PositionX.className = ('ball2Horizontal loseGravityX moveLeft');
+                      alert("X:" +currentPostionX)
                     break;
                 case "ArrowRight":
                     ball2PositionX.className = ('ball2Horizontal loseGravityX moveRight');
+                      alert("X:" +currentPostionX)
                     break;
                 case "Shift":
                   break;

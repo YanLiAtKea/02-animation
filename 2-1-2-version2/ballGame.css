@@ -595,7 +595,7 @@ div.bgglow {
     }
 }
 .snorringShort {
-    animation: snorringShort 3.13s 2 forwards;
+    animation: snorringShort 3.13s 3 forwards;
 }
 @keyframes snorringShort {
     0%, 90%, 100% {
