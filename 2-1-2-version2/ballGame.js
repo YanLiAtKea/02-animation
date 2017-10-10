@@ -210,22 +210,22 @@ moreAnimation.addEventListener('click', function (clickedElem) {
                 let currentPositionX = currentPositionHStyle.getPropertyValue('left');
                 let XNr = parseFloat(currentPositionX);
                 if (event.key == "ArrowDown"){
-                    newPositionY = String(YNr - 50) + "px";
+                    newPositionY = String(YNr - 30) + "px";
                     currentPositionV.style.bottom = newPositionY;
                 }
                 if (event.key == "ArrowUp"){
-                    newPositionY = String(YNr + 50) + "px";
+                    newPositionY = String(YNr + 30) + "px";
                     currentPositionV.style.bottom = newPositionY;
                 }
                 if (event.key == "ArrowLeft"){
-                    newPositionX = String(XNr - 50) + "px";
+                    newPositionX = String(XNr - 30) + "px";
                     currentPositionH.style.left = newPositionX;
                 }
                 if (event.key == "ArrowRight"){
-                    newPositionX = String(XNr + 50) + "px";
+                    newPositionX = String(XNr + 30) + "px";
                     currentPositionH.style.left = newPositionX;
                 }
-//              event.preventDefault(); // Cancel the default action to avoid it being handled twice
+              event.preventDefault(); // Cancel the default action to avoid it being handled twice, so that only the ball moves, the whole doesn't scroll
             });
         }
     }
