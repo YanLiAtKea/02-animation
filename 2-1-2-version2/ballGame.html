@@ -90,12 +90,12 @@
             <p><b>Mr. Ball nr.1 refined:</b> &nbsp;fixed speed, add audios with control &amp; more effects</p>
             <button id="move" class="button">calm ball rolling across</button>
             <button id="moveTo30" class="button">fast ball rush on stage</button>
-            <button id="moveFrom30" class="button">light ball blown away</button>
             <button id="oneJump" class="button">ball jump up - human style</button>
-            <button id="jump" class="button">fall &amp; bounce back</button>
             <button id="shake" class="button">shake</button>
-            <button id="fallDown" class="button">got hit and fall</button>
             <button id="mirror" class="button">mirror a double</button>
+            <button id="fallDown" class="button">got hit and fall</button>
+            <button id="moveFrom30" class="button">light ball blown away</button>
+            <button id="jump" class="button">fall &amp; bounce back</button>
             <button id="fade" class="button">fade into the dark</button>
             <button id="glow" class="button">glow || they found me</button>
         </div>
@@ -131,6 +131,7 @@
                 <li><del>!!!!! why snorring effect keeps firing right after all animations, after it's played for the first time. Bouncing ball also has infinite animation and audio loop but doesn't behave this way!</del> <br>Solution: add if inside function, so that snorring only runs when ball is in the right state, ie with the glow class, don't run snorring with any other class</li>
                 <li>*** check function scope</li>
                 <li>- Bad code JS:123</li>
+                <li>+ give stop ball1 function only to the stop1 button. Now didn't restrict this so click anywhere inside the div will reset scene</li>
                 <li>??? different audio lag in different browsers, especially in Safari. No snorring sound in Safari. No snorring motion in Firefox.</li>
                 <li><del>? lots of resetting status in simple animations. solution? </del></li>
                 <li>!! for the first 10 simple animations, use the "overwrite class approach -- second click on the button won't trigger animation again since there's no change in class, but a second click will trigger audio again, so image and audio don't sync as they should. Check activeElement vs. the just-clicked button and restrict second click behavior can only solve half the problem, as user can also click and start an animation, click somewhere else and then click the same button again before the animation and sound are finished, so the sound will still be overlapping and the ball won't go back to original state. So restrict second click based on audio play status?</li>
