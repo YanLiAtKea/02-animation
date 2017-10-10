@@ -70,7 +70,7 @@ img#volumeOn, img#volumeOff {
     border-top: 4px solid #222;
     position: absolute;
     bottom: 17.5vh;
-    opacity: .11;
+    opacity: .07;
 }
 .scene img, img.stop, #ballShot { /*the first ball*/
     z-index: 1;
@@ -493,16 +493,16 @@ div.bgfade {
     }
     30% {
         transform: translate(30vw, 0);
-        opacity: .05;
+        opacity: .15;
     }
     60%, 90% {
         transform: translate(30vw, 0);
-        opacity: .1;
+        opacity: .2;
         filter: drop-shadow(.5vw -.1vw .3vw rgba(255,255,0, .3));
     }
     100% {
         transform: translate(30vw, 0);
-        opacity: .2;
+        opacity: .3;
         filter: drop-shadow(.7vw -.3vw .3vw rgba(255,255,0, .35));
     }
 }
@@ -618,13 +618,13 @@ div.bgglow {
 @keyframes snorringShort {
     0%, 90%, 100% {
         transform: translate(30vw, 0) scale(1, 1);
-        opacity: .2;
+        opacity: .3;
         filter: drop-shadow(.7vw -.3vw .3vw rgba(255,255,0, .35));
         animation-timing-function: ease-in;
     }
     35% {
         transform: translate(30vw, 0) scale(.9, 1.1);
-        opacity: .3;
+        opacity: .35;
         filter: drop-shadow(1vw -.3vw .3vw rgba(255,255,0, .4));
         animation-timing-function: ease-in;
     }
@@ -635,13 +635,13 @@ div.bgglow {
 @keyframes snorringFast {
     0%, 90%, 100% {
         transform: translate(30vw, 0) scale(1, 1);
-        opacity: .2;
+        opacity: .25;
         filter: drop-shadow(.7vw -.3vw .3vw rgba(255,255,0, .35));
         animation-timing-function: ease-in;
     }
     35% {
         transform: translate(30vw, 0) scale(.9, 1.1);
-        opacity: .3;
+        opacity: .35;
         filter: drop-shadow(1vw -.3vw .3vw rgba(255,255,0, .4));
         animation-timing-function: ease-in;
     }
