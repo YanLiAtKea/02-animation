@@ -67,7 +67,7 @@ img#volumeOn, img#volumeOff {
 .horizonGlow {
     width: 99%;
     height: 1px;
-    background: 4px solid #222;
+    border-top: 4px solid #222;
     position: absolute;
     bottom: 17.5vh;
     opacity: .11;
