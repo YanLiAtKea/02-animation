@@ -463,7 +463,7 @@ li {
     }
 }
 .fade {
-    animation: fade 3.61s ease-in forwards;
+    animation: fade 4s ease forwards;
 }
 @keyframes fade {
     0% {

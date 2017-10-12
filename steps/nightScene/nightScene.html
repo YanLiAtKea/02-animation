@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>steps - night scene</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            background-image: url("setNightScene.png");
+            background-repeat: no-repeat; /* so that after the last frame it doesn't go back to first frame because of background-repeat*/
+            animation: nightScene 3s steps(10) forwards;
+        }
+        @keyframes nightScene {
+            to{
+                background-position: -12800px; /* in the file there are 11 frams, 11x 1280, but if want to stop at the last frame, then set steps to be 1 less than the actual nr, and position to the beginning of the frame*/
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+    </div>
+</body>
+</html>
+<link rel="stylesheet" href="">
